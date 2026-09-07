@@ -4,9 +4,10 @@
 
 ## 발행된 캔버스
 
-https://claude.ai/code/artifact/a1449088-ddd0-4080-9444-97a508e27b0f
+https://claude.ai/code/artifact/7a4d3a85-0cac-43f0-9b7a-d5acbb1da27c
 
-(PNG/PDF 내보내기 가능. Claude Design 캔버스 에디터로 요소 직접 수정도 가능)
+공유: 소유자가 공유 메뉴에서 링크를 열어야 다른 사람이 볼 수 있음(공개 링크 가능).
+편집 권한이 있으면 Claude Design 캔버스 에디터로 요소 직접 수정 가능.
 
 ## 파일
 
