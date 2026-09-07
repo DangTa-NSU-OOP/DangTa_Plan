@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 12px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .appbar .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar .t{font-size:16px;font-weight:700;}
+  .appbar .post{font-size:14px;font-weight:700;color:#fff;background:#0EA5A4;border-radius:9px;padding:8px 16px;}
+  .board{padding:15px 16px;border-bottom:1px solid #F1F2F3;display:flex;align-items:center;justify-content:space-between;}
+  .board .l{font-size:13px;color:#9AA0A6;}
+  .board .v{font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;}
+  .board .v svg{width:16px;height:16px;stroke:#9AA0A6;stroke-width:2;fill:none;}
+  .title{padding:16px;font-size:17px;font-weight:700;color:#C0C4C8;border-bottom:1px solid #F5F6F7;}
+  .area{padding:16px;font-size:15px;color:#C0C4C8;line-height:1.8;flex:1;}
+  .toolbar{border-top:1px solid #EEF0F1;display:flex;align-items:center;gap:6px;padding:10px 14px 16px;flex:none;}
+  .toolbar .ti{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#8A9098;}
+  .toolbar .ti svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .toolbar .anon{margin-left:auto;display:flex;align-items:center;gap:9px;font-size:13px;color:#0B7C7B;font-weight:700;}
+  .toolbar .sw{width:42px;height:24px;border-radius:999px;background:#0EA5A4;position:relative;}
+  .toolbar .sw::after{content:"";position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:999px;background:#fff;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar">
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+    <div class="t">글쓰기</div>
+    <div class="post">등록</div>
+  </div>
+  <div class="board">
+    <span class="l">게시판</span>
+    <span class="v">자유게시판 <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+  </div>
+  <div class="title">제목을 입력하세요</div>
+  <div class="area">자유롭게 글을 작성해 보세요.
+서로 존중하는 커뮤니티를 만들어요.</div>
+  <div class="toolbar">
+    <div class="anon">익명으로 작성 <span class="sw"></span></div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

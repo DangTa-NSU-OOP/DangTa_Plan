@@ -147,6 +147,7 @@ erDiagram
         bigint target_id FK "평가받는 user"
         bigint product_id FK
         varchar tags "쉼표구분, 예: KIND,ON_TIME"
+        varchar comment "nullable, 한 줄 후기"
         decimal score_delta "실제 반영된 가감치"
         timestamp created_at
     }
@@ -201,7 +202,7 @@ erDiagram
 시드로 3개: 자유 / 정보 / 질문. `slug`로 URL (`/community/free`).
 
 ### post
-- `anonymous`가 true면 응답에서 작성자 이름을 "익명"으로. **익명 번호(익명1, 익명2)는 MVP에서 생략** — 그냥 다 "익명".
+- `anonymous`가 true면 응답에서 작성자 이름을 "익명"으로. **익명 번호(익명1, 익명2)는 MVP에서 생략.** 단, 글 작성자 본인이 자기 글에 익명 댓글을 달면 "익명(글쓴이)"로 구분 표시 (댓글의 `author_id == post.author_id` 비교만 하면 됨).
 - `like_count`, `comment_count`는 좋아요/댓글 추가·삭제 시 증감(비정규화). 처음엔 `count(*)`로 해도 됨.
 
 ### comment
@@ -222,6 +223,7 @@ erDiagram
 ### manner_review
 - `unique(reviewer_id, product_id)` — 한 거래에 한 번만 평가.
 - `tags`: 긍정 태그 코드들을 쉼표로. 예 `KIND,ON_TIME,FAST_REPLY`.
+- `comment`: 한 줄 후기(선택). 상대 프로필에 노출.
 - 온도 계산(§3)을 서비스에서 하고 결과 `score_delta` 저장, 동시에 `users.manner_temperature` 갱신.
 
 ### report

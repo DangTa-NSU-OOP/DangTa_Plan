@@ -24,6 +24,8 @@
 | [api.md](./api.md) | REST API 40여 개. 요청/응답 예시 |
 | [frontend.md](./frontend.md) | **프론트엔드가 뭘 만드는지** — 화면·컴포넌트·폴더구조·API 연동·상태관리·주차별 할 일 |
 
+**화면 목업**: `wireframes/mvp/` (13개 화면) · 캔버스 https://claude.ai/code/artifact/de79815a-90b8-4c4b-b9df-61389f2ed3e3
+
 ## 스택 (축소판)
 
 - **백엔드**: Spring Boot 3 + Spring Web + Spring Data JPA + Spring Security(JWT) + DB(H2로 시작 → MySQL/PostgreSQL)

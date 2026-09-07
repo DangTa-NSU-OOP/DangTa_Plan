@@ -382,7 +382,8 @@ npm run build   # dist/ 정적 파일 생성
 
 ## 12. 참고 자료
 
-- 화면 디자인: 하이파이 목업 캔버스 (팀 공유 링크) + `wireframes/` 폴더의 `*.dc.html`
+- **MVP 화면 목업**: https://claude.ai/code/artifact/de79815a-90b8-4c4b-b9df-61389f2ed3e3 + `wireframes/mvp/` 폴더 (2번 표의 화면 이름과 파일명이 1:1). 이걸 코드로 옮기면 됨
+- (전체 기획 목업 18개는 `wireframes/` 루트 — 참고만)
 - 색·폰트·컴포넌트 규칙: `docs/06-design-system.md`
 - API 규격: `docs/mvp/api.md`
 - 데이터 구조: `docs/mvp/erd.md`

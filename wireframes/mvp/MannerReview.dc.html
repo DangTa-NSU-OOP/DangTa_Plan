@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .iconbtn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .appbar .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar .t{font-size:16px;font-weight:700;}
+  .scroll{flex:1;overflow:hidden;padding:24px 16px;display:flex;flex-direction:column;gap:26px;}
+  .who{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .who .av{width:64px;height:64px;border-radius:999px;background:#E4849B;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;}
+  .who .q{font-size:18px;font-weight:800;text-align:center;line-height:1.5;letter-spacing:-.3px;}
+  .who .s{font-size:12px;color:#9AA0A6;}
+  .sect{display:flex;flex-direction:column;gap:12px;}
+  .sect .lb{font-size:14px;font-weight:800;color:#1B1F24;}
+  .sect .lb span{font-size:12px;font-weight:400;color:#9AA0A6;margin-left:4px;}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;}
+  .o{padding:10px 14px;border:1.5px solid #E3E6E8;border-radius:999px;font-size:13px;font-weight:600;color:#6B7280;}
+  .o.on{border-color:#0EA5A4;background:#F0FAF9;color:#0B7C7B;}
+  .o.neg{color:#8A9098;}
+  .o.neg.on{border-color:#EF4444;background:#FEF1F1;color:#DC2626;}
+  .rebuy{display:flex;gap:10px;}
+  .rebuy .r{flex:1;height:48px;border:1.5px solid #E3E6E8;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#6B7280;}
+  .rebuy .r.on{border-color:#0EA5A4;background:#F0FAF9;color:#0B7C7B;font-weight:800;}
+  .area{min-height:78px;border:1.5px solid #EEF0F1;border-radius:12px;padding:13px;font-size:13.5px;color:#AEB4BB;line-height:1.6;}
+  .note{font-size:12.5px;color:#0B7C7B;background:#F0FAF9;border-radius:12px;padding:13px 14px;line-height:1.5;text-align:center;}
+  .note b{font-weight:800;}
+  .btn{height:54px;border-radius:13px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;margin:6px 16px 18px;flex:none;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar">
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+    <div class="t">매너 평가</div>
+  </div>
+  <div class="scroll">
+    <div class="who">
+      <div class="av">연</div>
+      <div class="q">서연님과의 거래는<br>어떠셨나요?</div>
+      <div class="s">자취 미니 냉장고 · 9월 10일 거래</div>
+    </div>
+
+    <div class="sect">
+      <div class="lb">좋았던 점<span>선택한 개수 × +0.5℃</span></div>
+      <div class="opts">
+        <span class="o on">시간 약속을 잘 지켜요</span>
+        <span class="o on">친절하고 매너가 좋아요</span>
+        <span class="o">응답이 빨라요</span>
+        <span class="o">상품 상태가 설명과 같아요</span>
+        <span class="o">좋은 나눔 해주셨어요</span>
+      </div>
+    </div>
+
+    <div class="sect">
+      <div class="lb">한 줄 후기<span>선택 · 프로필에 공개</span></div>
+      <div class="area">거래 상대에게 전하고 싶은 후기를 남겨주세요.</div>
+    </div>
+
+    <div class="note">이 평가로 서연님의 매너온도가 <b>36.5℃ → 37.5℃</b> 로 올라가요</div>
+  </div>
+  <div class="btn">평가 보내기</div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

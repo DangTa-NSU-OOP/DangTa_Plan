@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;padding:0 8px;flex:none;}
+  .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .body{flex:1;padding:8px 24px 24px;display:flex;flex-direction:column;gap:24px;}
+  .progress{display:flex;gap:6px;}
+  .progress i{flex:1;height:4px;border-radius:999px;background:#E9EBED;}
+  .progress i.on{background:#0EA5A4;}
+  h1{font-size:23px;font-weight:800;letter-spacing:-.4px;}
+  .avatar{width:100px;height:100px;border-radius:999px;background:#F0FAF9;border:1.5px dashed #7FCFCB;align-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#0B9C99;font-size:11px;font-weight:600;position:relative;}
+  .avatar svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.8;fill:none;}
+  .avatar .cam{position:absolute;right:-2px;bottom:-2px;width:30px;height:30px;border-radius:999px;background:#0EA5A4;border:3px solid #fff;display:flex;align-items:center;justify-content:center;}
+  .avatar .cam svg{width:15px;height:15px;stroke:#fff;stroke-width:2.2;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field .lb{font-size:13px;color:#6B7280;font-weight:600;}
+  .input{height:52px;border:1.5px solid #E3E6E8;border-radius:13px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;font-size:15px;font-weight:500;}
+  .input.active{border-color:#0EA5A4;}
+  .input .ok{font-size:12px;color:#16A34A;font-weight:700;display:flex;align-items:center;gap:3px;}
+  .input .ok svg{width:14px;height:14px;stroke:currentColor;stroke-width:2.6;fill:none;}
+  .input.placeholder{color:#AEB4BB;}
+  .input .chev{width:18px;height:18px;stroke:#AEB4BB;stroke-width:2;fill:none;}
+  .hint{font-size:12px;color:#9AA0A6;}
+  .locked{display:flex;align-items:center;gap:9px;background:#F6F7F8;border-radius:12px;padding:13px 14px;font-size:12.5px;color:#6B7280;font-weight:500;}
+  .locked svg{width:16px;height:16px;stroke:#9AA0A6;stroke-width:2;fill:none;flex:none;}
+  .spacer{flex:1;}
+  .btn{height:54px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;background:#0EA5A4;color:#fff;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div></div>
+  <div class="body">
+    <div class="progress"><i class="on"></i><i class="on"></i></div>
+    <h1>계정 정보를 입력해 주세요</h1>
+
+    <div class="field">
+      <div class="lb">닉네임</div>
+      <div class="input active">공대냉장고요정 <span class="ok"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>사용 가능</span></div>
+      <div class="hint">우리 학교 안에서 겹치지 않는 이름이어야 해요</div>
+    </div>
+
+    <div class="field">
+      <div class="lb">비밀번호</div>
+      <div class="input active">••••••••</div>
+      <div class="hint">8자 이상, 영문·숫자 포함</div>
+    </div>
+
+    <div class="field">
+      <div class="lb">비밀번호 확인</div>
+      <div class="input active">•••••••• <span class="ok"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>일치</span></div>
+    </div>
+
+    <div class="field">
+      <div class="lb">학과 <span style="color:#AEB4BB;font-weight:400;">(선택)</span></div>
+      <div class="input">전자공학과 <svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+    </div>
+
+    <div class="locked"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>학교: 한국대학교 · minseo@hankuk.ac.kr (인증 완료)</div>
+
+    <div class="spacer"></div>
+    <div class="btn">가입하고 시작하기</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

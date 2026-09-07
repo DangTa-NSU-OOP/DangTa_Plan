@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#F5F6F7;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 16px;flex:none;border-bottom:1px solid #EEF0F1;}
+  .appbar .t{font-size:18px;font-weight:800;letter-spacing:-.3px;}
+  .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .iconbtn svg{width:23px;height:23px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .scroll{flex:1;overflow:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+  .card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 1px 3px rgba(17,24,39,.06);}
+  .prof{display:flex;align-items:center;gap:14px;}
+  .prof .av{width:56px;height:56px;border-radius:999px;background:#7C6BD6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;flex:none;}
+  .prof .nm{font-size:16px;font-weight:800;}
+  .prof .sub{font-size:12px;color:#9AA0A6;margin-top:2px;}
+  .prof .edit{margin-left:auto;font-size:12px;font-weight:600;color:#6B7280;border:1.5px solid #E9EBED;border-radius:9px;padding:7px 11px;}
+  .temp{margin-top:16px;}
+  .temp .row{display:flex;justify-content:space-between;align-items:baseline;}
+  .temp .lab{font-size:12px;color:#9AA0A6;font-weight:600;}
+  .temp .val{font-size:22px;font-weight:800;color:#F59E0B;letter-spacing:-.5px;}
+  .temp .bar{height:8px;border-radius:999px;background:#EEF0F1;margin-top:9px;overflow:hidden;}
+  .temp .bar i{display:block;width:62%;height:100%;background:linear-gradient(90deg,#22C55E,#0EA5A4 55%,#F59E0B);}
+  .temp .meta{font-size:12px;color:#9AA0A6;margin-top:9px;}
+  .temp .meta b{color:#0B7C7B;font-weight:700;}
+  .quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .quick .q{background:#fff;border-radius:14px;padding:14px 4px;display:flex;flex-direction:column;align-items:center;gap:7px;font-size:11px;font-weight:600;color:#5B6570;box-shadow:0 1px 3px rgba(17,24,39,.05);}
+  .quick .q svg{width:22px;height:22px;stroke:#0EA5A4;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .menu{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(17,24,39,.06);}
+  .menu .mi{padding:15px 16px;font-size:14px;font-weight:500;border-bottom:1px solid #F5F6F7;display:flex;justify-content:space-between;align-items:center;}
+  .menu .mi:last-child{border-bottom:none;}
+  .menu .mi svg{width:18px;height:18px;stroke:#C4C9CD;stroke-width:2;fill:none;}
+  .reviews .rt{font-size:13px;font-weight:800;margin-bottom:10px;}
+  .rv{border-top:1px solid #F5F6F7;padding-top:11px;margin-top:11px;}
+  .rv .tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px;}
+  .rv .tg{font-size:11px;font-weight:600;color:#0B7C7B;background:#EDF7F6;border-radius:6px;padding:2px 7px;}
+  .rv .tx{font-size:13px;color:#37414B;line-height:1.6;}
+  .tabbar{height:64px;background:#fff;border-top:1px solid #EEF0F1;display:flex;flex:none;padding-bottom:4px;}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:500;color:#B0B5BB;}
+  .tab svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .tab--on{color:#0EA5A4;font-weight:700;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar">
+    <div class="t">마이</div>
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 2h-4l-.5 2.6a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.6A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 22h4l.5-2.6a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.6c.1-.4.1-.8.1-1.2Z"/></svg></div>
+  </div>
+  <div class="scroll">
+    <div class="card">
+      <div class="prof">
+        <div class="av">서</div>
+        <div>
+          <div class="nm">공대냉장고요정</div>
+          <div class="sub">한국대 · 전자공학과 · 24학번</div>
+        </div>
+        <div class="edit">프로필 수정</div>
+      </div>
+      <div class="temp">
+        <div class="row"><span class="lab">매너온도</span><span class="val">42.3℃</span></div>
+        <div class="bar"><i></i></div>
+        <div class="meta">받은 매너 평가 <b>17회</b> · 가장 많은 태그 <b>친절해요</b></div>
+      </div>
+    </div>
+
+    <div class="quick">
+      <div class="q"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1.5 12.5a2 2 0 0 1-2 1.5H7.5a2 2 0 0 1-2-1.5Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>판매내역</div>
+      <div class="q"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-13Z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg>구매내역</div>
+      <div class="q"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>찜한상품</div>
+    </div>
+
+    <div class="menu">
+      <div class="mi">내가 쓴 글 · 댓글<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+      <div class="mi">차단 목록<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+      <div class="mi">고객센터<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+      <div class="mi" style="color:#9AA0A6;">로그아웃<svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+    </div>
+
+    <div class="card reviews">
+      <div class="rt">받은 매너 후기</div>
+      <div class="rv">
+        <div class="tags"><span class="tg">시간약속을 잘 지켜요</span><span class="tg">친절해요</span></div>
+        <div class="tx">"약속 시간에 딱 맞춰 오셨고 물건도 설명 그대로였어요!"</div>
+      </div>
+      <div class="rv">
+        <div class="tags"><span class="tg">응답이 빨라요</span></div>
+        <div class="tx">"채팅 답장이 엄청 빨라서 편하게 거래했습니다."</div>
+      </div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>홈</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M5 5h14v10H9l-4 4Z"/><path d="M9 9h6M9 12h4"/></svg>커뮤니티</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>채팅</div>
+    <div class="tab tab--on"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.6-6 8-6s6.6 2 8 6"/></svg>마이</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

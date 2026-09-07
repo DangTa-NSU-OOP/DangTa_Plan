@@ -269,14 +269,19 @@
 ]}
 
 // POST /api/manner/reviews
-{ "productId": 12, "targetId": 5, "tags": ["KIND", "ON_TIME"] }
+{ "productId": 12, "targetId": 5, "tags": ["KIND", "ON_TIME"], "comment": "시간 잘 지키시고 친절해요!" }
 // 201 { "data": { "scoreDelta": 1.0, "targetTemperature": 39.0 } }
+// comment 는 선택
 // 409 { "error": { "code": "ALREADY_REVIEWED" } }
 
 // GET /api/users/5/manner-reviews → 200
 { "data": {
   "totalCount": 17,
-  "tagCounts": { "KIND": 12, "ON_TIME": 9, "FAST_REPLY": 5, "GOOD_ITEM": 7, "GENEROUS": 2 }
+  "tagCounts": { "KIND": 12, "ON_TIME": 9, "FAST_REPLY": 5, "GOOD_ITEM": 7, "GENEROUS": 2 },
+  "comments": [
+    { "text": "약속 시간에 딱 맞춰 오셨고 물건도 설명 그대로였어요!", "createdAt": "2026-09-10" },
+    { "text": "채팅 답장이 엄청 빨라서 편하게 거래했습니다.", "createdAt": "2026-09-05" }
+  ]
 }}
 ```
 

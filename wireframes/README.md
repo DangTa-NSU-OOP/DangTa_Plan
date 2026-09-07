@@ -1,8 +1,18 @@
 # 당타 화면 목업
 
-18개 화면 모바일(390px) 하이파이 목업. Noto Sans KR · 틸(#0EA5A4) + 화이트.
-`docs/06-design-system.md`의 디자인 시스템을 적용했고, 실제 데이터가 채워진 상태.
-상품/책 사진 자리는 카테고리별 톤 블록으로 표현.
+두 종류가 있음:
+
+| 폴더 | 내용 | 캔버스 |
+|---|---|---|
+| `wireframes/` (루트) | **전체 기획** 18개 화면. 5탭. 발표·로드맵용 | https://claude.ai/code/artifact/7a4d3a85-0cac-43f0-9b7a-d5acbb1da27c |
+| [`wireframes/mvp/`](./mvp/) | **학기 구현 범위(MVP)** 13개 화면. 4탭. 실제로 이걸 만듦 | https://claude.ai/code/artifact/de79815a-90b8-4c4b-b9df-61389f2ed3e3 |
+
+둘 다 모바일(390px) 하이파이. Noto Sans KR · 틸(#0EA5A4) + 화이트. `docs/06-design-system.md` 적용.
+사진 자리는 카테고리별 톤 블록으로 표현.
+
+---
+
+## 전체 기획 목업 (아래는 `wireframes/` 루트 기준)
 
 ## 발행된 캔버스
 
