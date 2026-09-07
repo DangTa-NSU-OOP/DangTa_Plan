@@ -7,37 +7,47 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;align-items:center;padding:0 24px;}
-  .top{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
-  .logo{width:88px;height:88px;border-radius:24px;background:#E6F7F6;border:2px solid #0EA5A4;display:flex;align-items:center;justify-content:center;color:#0B7C7B;font-weight:800;font-size:24px;}
-  .name{font-size:28px;font-weight:800;letter-spacing:-.5px;}
-  .tagline{font-size:14px;color:#6B7280;text-align:center;line-height:1.5;}
-  .bottom{width:100%;display:flex;flex-direction:column;gap:12px;padding-bottom:40px;}
-  .btn{height:52px;border-radius:12px;border:1px solid #E5E7EB;background:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
-  .btn.p{background:#0EA5A4;border-color:#0EA5A4;color:#fff;}
-  .fine{font-size:11px;color:#9CA3AF;text-align:center;line-height:1.6;margin-top:4px;}
-  .hint{font-size:12px;color:#0B7C7B;background:#E6F7F6;border-radius:10px;padding:10px 12px;text-align:center;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;color:#111827;-webkit-font-smoothing:antialiased;}
+  a{color:#0B7C7B;text-decoration:none;}
+  .screen{width:390px;min-height:880px;background:linear-gradient(180deg,#0EA5A4 0%,#0C9694 42%,#F5F6F7 42%,#F5F6F7 100%);display:flex;flex-direction:column;align-items:center;padding:0 24px;position:relative;overflow:hidden;}
+  .hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;}
+  .logo{width:92px;height:92px;border-radius:26px;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;color:#0EA5A4;box-shadow:0 12px 30px rgba(0,0,0,.16);letter-spacing:-1px;}
+  .name{font-size:30px;font-weight:800;color:#fff;letter-spacing:-.5px;}
+  .tagline{font-size:14px;color:rgba(255,255,255,.92);text-align:center;line-height:1.6;font-weight:500;}
+  .panel{width:100%;background:#fff;border-radius:20px;padding:22px 20px;box-shadow:0 8px 24px rgba(17,24,39,.08);margin-bottom:16px;display:flex;flex-direction:column;gap:12px;}
+  .note{display:flex;gap:8px;align-items:flex-start;background:#F0FAF9;border-radius:12px;padding:12px;font-size:12.5px;color:#0B7C7B;line-height:1.5;font-weight:500;}
+  .note svg{width:18px;height:18px;stroke:#0EA5A4;stroke-width:2;fill:none;flex:none;margin-top:1px;}
+  .btn{height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;}
+  .btn--primary{background:#0EA5A4;color:#fff;}
+  .btn--ghost{background:#fff;border:1px solid #E3E6E8;color:#3A424C;}
+  .fine{font-size:11px;color:#9AA0A6;text-align:center;line-height:1.7;margin-top:2px;}
+  .fine a{color:#6B7280;text-decoration:underline;}
+  .foot{padding-bottom:34px;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="top">
+  <div class="hero">
     <div class="logo">당타</div>
     <div class="name">당타</div>
     <div class="tagline">우리 학교 안에서 다 되는<br>중고거래 · 중고책 · 소모임 · 커뮤니티</div>
-    <div class="hint">재학생만 이용할 수 있어요 · 학교 이메일 인증 필요</div>
   </div>
-  <div class="bottom">
-    <div class="btn p">학교 이메일로 시작하기</div>
-    <div class="btn">이미 계정이 있어요 (로그인)</div>
-    <div class="fine">시작하면 이용약관 및 개인정보처리방침에 동의하게 됩니다.</div>
+  <div class="foot">
+    <div class="panel">
+      <div class="note">
+        <svg viewBox="0 0 24 24"><path d="M12 3 3 7v5c0 5 3.8 8 9 9 5.2-1 9-4 9-9V7Z"/></svg>
+        재학생만 이용할 수 있어요. 학교 이메일 인증 한 번이면 우리 학교 친구들과 바로 거래할 수 있어요.
+      </div>
+      <div class="btn btn--primary">학교 이메일로 시작하기</div>
+      <div class="btn btn--ghost">이미 계정이 있어요</div>
+      <div class="fine">시작하면 <a>이용약관</a> 및 <a>개인정보처리방침</a>에 동의하게 됩니다.</div>
+    </div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

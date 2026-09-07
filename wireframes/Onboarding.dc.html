@@ -7,63 +7,74 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
-  .appbar{height:52px;display:flex;align-items:center;padding:0 16px;gap:12px;flex:none;}
-  .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .body{flex:1;padding:16px 24px 24px;display:flex;flex-direction:column;gap:22px;}
-  .step{display:flex;gap:6px;}
-  .step .s{flex:1;height:4px;border-radius:999px;background:#E5E7EB;}
-  .step .s.on{background:#0EA5A4;}
-  .h1{font-size:22px;font-weight:800;}
-  .avatar{width:96px;height:96px;border-radius:999px;background:#E6F7F6;border:1px dashed #0EA5A4;align-self:center;display:flex;align-items:center;justify-content:center;color:#0B7C7B;font-size:12px;}
-  .field{display:flex;flex-direction:column;gap:6px;}
-  .label{font-size:13px;color:#6B7280;}
-  .input{height:52px;border:1px solid #D1D5DB;border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font-size:15px;}
-  .input .chk{font-size:12px;color:#0B7C7B;}
-  .input .caret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #9CA3AF;}
-  .input.ph{color:#9CA3AF;}
-  .help{font-size:12px;color:#9CA3AF;}
-  .lock{font-size:12px;color:#6B7280;background:#F3F4F6;border-radius:10px;padding:10px 12px;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;padding:0 8px;flex:none;}
+  .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .body{flex:1;padding:8px 24px 24px;display:flex;flex-direction:column;gap:24px;}
+  .progress{display:flex;gap:6px;}
+  .progress i{flex:1;height:4px;border-radius:999px;background:#E9EBED;}
+  .progress i.on{background:#0EA5A4;}
+  h1{font-size:23px;font-weight:800;letter-spacing:-.4px;}
+  .avatar{width:100px;height:100px;border-radius:999px;background:#F0FAF9;border:1.5px dashed #7FCFCB;align-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#0B9C99;font-size:11px;font-weight:600;position:relative;}
+  .avatar svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.8;fill:none;}
+  .avatar .cam{position:absolute;right:-2px;bottom:-2px;width:30px;height:30px;border-radius:999px;background:#0EA5A4;border:3px solid #fff;display:flex;align-items:center;justify-content:center;}
+  .avatar .cam svg{width:15px;height:15px;stroke:#fff;stroke-width:2.2;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field .lb{font-size:13px;color:#6B7280;font-weight:600;}
+  .input{height:52px;border:1.5px solid #E3E6E8;border-radius:13px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;font-size:15px;font-weight:500;}
+  .input.active{border-color:#0EA5A4;}
+  .input .ok{font-size:12px;color:#16A34A;font-weight:700;display:flex;align-items:center;gap:3px;}
+  .input .ok svg{width:14px;height:14px;stroke:currentColor;stroke-width:2.6;fill:none;}
+  .input.placeholder{color:#AEB4BB;}
+  .input .chev{width:18px;height:18px;stroke:#AEB4BB;stroke-width:2;fill:none;}
+  .hint{font-size:12px;color:#9AA0A6;}
+  .locked{display:flex;align-items:center;gap:9px;background:#F6F7F8;border-radius:12px;padding:13px 14px;font-size:12.5px;color:#6B7280;font-weight:500;}
+  .locked svg{width:16px;height:16px;stroke:#9AA0A6;stroke-width:2;fill:none;flex:none;}
   .spacer{flex:1;}
-  .btn{height:52px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
+  .btn{height:54px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;background:#0EA5A4;color:#fff;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="appbar"><div class="back"></div></div>
+  <div class="appbar"><div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div></div>
   <div class="body">
-    <div class="step"><div class="s on"></div><div class="s on"></div><div class="s on"></div></div>
-    <div class="h1">프로필을 만들어 주세요</div>
+    <div class="progress"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <h1>프로필을 만들어 주세요</h1>
 
-    <div class="avatar">사진 추가</div>
-
-    <div class="field">
-      <div class="label">닉네임</div>
-      <div class="input">공대냉장고요정 <span class="chk">사용 가능</span></div>
-      <div class="help">학교 안에서 겹치지 않는 이름이어야 해요</div>
+    <div class="avatar">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-3.5 4-5 7-5s6 1.5 7 5"/></svg>
+      사진 추가
+      <div class="cam"><svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L18 8h2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg></div>
     </div>
 
     <div class="field">
-      <div class="label">학과 (선택)</div>
-      <div class="input ph">전자공학과 <span class="caret"></span></div>
+      <div class="lb">닉네임</div>
+      <div class="input active">공대냉장고요정 <span class="ok"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>사용 가능</span></div>
+      <div class="hint">우리 학교 안에서 겹치지 않는 이름이어야 해요</div>
     </div>
 
     <div class="field">
-      <div class="label">입학연도 (선택)</div>
-      <div class="input ph">2024학번 <span class="caret"></span></div>
+      <div class="lb">학과 <span style="color:#AEB4BB;font-weight:400;">(선택)</span></div>
+      <div class="input">전자공학과 <svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
     </div>
 
-    <div class="lock">🏫 학교: 한국대학교 · 인증된 정보라 바꿀 수 없어요</div>
+    <div class="field">
+      <div class="lb">입학연도 <span style="color:#AEB4BB;font-weight:400;">(선택)</span></div>
+      <div class="input">2024학번 <svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+    </div>
+
+    <div class="locked"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>학교: 한국대학교 · 인증된 정보라 변경할 수 없어요</div>
 
     <div class="spacer"></div>
     <div class="btn">당타 시작하기</div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

@@ -7,88 +7,106 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#F5F6F7;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;display:flex;flex-direction:column;position:relative;}
-  .appbar{height:52px;background:#fff;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex:none;}
-  .appbar .t{font-weight:700;font-size:16px;display:flex;align-items:center;gap:6px;}
-  .caret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #111827;}
-  .icons{display:flex;gap:14px;}
-  .ic{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .boards{display:flex;gap:8px;padding:12px 16px;overflow:hidden;background:#fff;border-bottom:1px solid #E5E7EB;}
-  .chip{height:30px;padding:0 12px;border-radius:999px;border:1px solid #E5E7EB;background:#fff;font-size:13px;color:#6B7280;display:inline-flex;align-items:center;white-space:nowrap;flex:none;}
-  .chip.on{background:#E6F7F6;border-color:#0EA5A4;color:#0B7C7B;font-weight:600;}
-  .hot{margin:12px 16px 0;background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;}
-  .hot .h{font-size:12px;font-weight:800;color:#DC2626;}
-  .hot .hr{font-size:13px;color:#374151;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .list{flex:1;padding:8px 0;}
-  .p{background:#fff;border-bottom:1px solid #EEF0F1;padding:14px 16px;display:flex;flex-direction:column;gap:6px;}
-  .p .pt{font-size:15px;font-weight:600;line-height:1.35;}
-  .p .pb{font-size:13px;color:#6B7280;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
-  .p .pf{display:flex;gap:10px;font-size:11px;color:#9CA3AF;align-items:center;}
-  .p .pf .who{color:#6B7280;}
-  .p .pf .r{margin-left:auto;display:flex;gap:10px;}
-  .fab{position:absolute;right:16px;bottom:76px;width:52px;height:52px;border-radius:999px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(14,165,164,.4);}
-  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
-  .tabbar .tb3{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
-  .tabbar .tb3.on{color:#0EA5A4;font-weight:600;}
-  .tabbar .tb3 .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
-  .tabbar .tb3.on .d{background:#0EA5A4;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#F5F6F7;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .appbar{height:56px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 16px;flex:none;border-bottom:1px solid #EEF0F1;}
+  .appbar .t{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:3px;}
+  .appbar .t svg{width:18px;height:18px;stroke:#111827;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar .actions{display:flex;}
+  .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;position:relative;}
+  .iconbtn svg{width:23px;height:23px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .dot{position:absolute;top:8px;right:9px;width:7px;height:7px;border-radius:999px;background:#0EA5A4;border:1.5px solid #fff;}
+  .boards{display:flex;gap:7px;padding:11px 16px;background:#fff;border-bottom:1px solid #EEF0F1;overflow:hidden;}
+  .chip{flex:none;height:32px;padding:0 13px;border-radius:999px;border:1px solid #E3E6E8;background:#fff;font-size:13px;font-weight:500;color:#5B6570;display:inline-flex;align-items:center;white-space:nowrap;}
+  .chip--on{background:#0EA5A4;border-color:#0EA5A4;color:#fff;font-weight:700;}
+  .scroll{flex:1;overflow:hidden;}
+  .hot{margin:12px 16px 4px;background:#fff;border-radius:14px;padding:14px;box-shadow:0 1px 3px rgba(17,24,39,.06);}
+  .hot .h{font-size:12px;font-weight:800;color:#EF4444;display:flex;align-items:center;gap:5px;margin-bottom:10px;}
+  .hot .h svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;}
+  .hot .r{font-size:13.5px;color:#37414B;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:5px 0;font-weight:500;}
+  .hot .r b{color:#B0B5BA;font-weight:700;margin-right:6px;}
+  .list{background:#fff;margin-top:8px;}
+  .post{border-bottom:1px solid #F1F2F3;padding:15px 16px;display:flex;flex-direction:column;gap:6px;}
+  .post .pt{font-size:15.5px;font-weight:700;line-height:1.4;color:#1B1F24;}
+  .post .pb{font-size:13px;color:#6B7280;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .post .pf{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#B0B5BA;margin-top:2px;}
+  .post .pf .who{color:#8A9098;font-weight:600;}
+  .post .pf .rt{margin-left:auto;display:flex;gap:12px;}
+  .post .pf .rt span{display:flex;align-items:center;gap:3px;}
+  .post .pf svg{width:13px;height:13px;stroke:currentColor;stroke-width:2;fill:none;}
+  .poll{align-self:flex-start;font-size:11px;font-weight:700;color:#0B7C7B;background:#EDF7F6;border-radius:6px;padding:2px 7px;}
+  .fab{position:absolute;right:16px;bottom:82px;height:48px;padding:0 18px 0 14px;border-radius:999px;background:#0EA5A4;color:#fff;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;box-shadow:0 8px 18px rgba(14,165,164,.4);}
+  .fab svg{width:19px;height:19px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .tabbar{height:64px;background:#fff;border-top:1px solid #EEF0F1;display:flex;flex:none;padding-bottom:4px;}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:500;color:#B0B5BB;}
+  .tab svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .tab--on{color:#0EA5A4;font-weight:700;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="appbar"><div class="t">자유게시판 <span class="caret"></span></div><div class="icons"><div class="ic"></div><div class="ic"></div></div></div>
+  <div class="appbar">
+    <div class="t">자유게시판 <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+    <div class="actions">
+      <div class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></div>
+    </div>
+  </div>
   <div class="boards">
-    <span class="chip on">자유</span>
-    <span class="chip">정보</span>
+    <span class="chip chip--on">자유</span>
+    <span class="chip">정보공유</span>
     <span class="chip">질문</span>
     <span class="chip">새내기</span>
     <span class="chip">취준·졸업생</span>
     <span class="chip">분실물</span>
   </div>
 
-  <div class="hot">
-    <div class="h">🔥 지금 뜨는 글</div>
-    <div class="hr">중앙도서관 24시간 개방 언제부터인지 아는 사람?</div>
-    <div class="hr">학식 새 메뉴 먹어봤는데 솔직 후기...</div>
+  <div class="scroll">
+    <div class="hot">
+      <div class="h"><svg viewBox="0 0 24 24"><path d="M12 3s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3 1-3s-1 4 2 5c0 0-2-4 2-11Z"/></svg>지금 뜨는 글</div>
+      <div class="r"><b>1</b>중앙도서관 24시간 개방 언제부터인지 아는 사람?</div>
+      <div class="r"><b>2</b>학식 새 메뉴 먹어봤는데 솔직 후기...</div>
+      <div class="r"><b>3</b>전공 계절학기 신청 팁 정리해봤어요</div>
+    </div>
+
+    <div class="list">
+      <div class="post">
+        <div class="pt">중간고사 언제부터 공부 시작함?</div>
+        <div class="pb">전공 3개인데 아직 하나도 안 봤어요 큰일났다 다들 언제부터 하시나요</div>
+        <div class="pf"><span class="who">익명</span><span>· 12분 전</span><span class="rt"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>42</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>18</span></span></div>
+      </div>
+      <div class="post">
+        <div class="pt">공대 근처 점심 맛집 추천받아요</div>
+        <div class="pb">맨날 학식만 먹어서 질렸어요. 5호관에서 걸어갈 만한 곳 있을까요?</div>
+        <div class="pf"><span class="who">밥이좋아</span><span>· 34분 전</span><span class="rt"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>15</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>22</span></span></div>
+      </div>
+      <div class="post">
+        <div class="pt">기숙사 무인택배함 택배 분실 겪어보신 분</div>
+        <div class="pb">분명 도착 알림 왔는데 함에 없어요. 어디에 문의해야 하나요ㅠㅠ</div>
+        <div class="pf"><span class="who">익명</span><span>· 1시간 전</span><span class="rt"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>8</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>6</span></span></div>
+      </div>
+      <div class="post">
+        <span class="poll">투표</span>
+        <div class="pt">이번 대동제 라인업 만족하시나요?</div>
+        <div class="pb">개인적으로는 꽤 만족... 여러분 생각은 어떤지 궁금</div>
+        <div class="pf"><span class="who">축제기대중</span><span>· 2시간 전</span><span class="rt"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>30</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>11</span></span></div>
+      </div>
+    </div>
   </div>
 
-  <div class="list">
-    <div class="p">
-      <div class="pt">중간고사 언제부터 공부 시작함?</div>
-      <div class="pb">전공 3개인데 아직 하나도 안 봤어요 큰일났다 다들 언제부터 하시나요</div>
-      <div class="pf"><span class="who">익명</span><span>· 12분 전</span><span class="r"><span>♡ 42</span><span>💬 18</span></span></div>
-    </div>
-    <div class="p">
-      <div class="pt">공대 근처 점심 맛집 추천받아요</div>
-      <div class="pb">맨날 학식만 먹어서 질렸어요. 5호관에서 걸어갈 만한 곳 있을까요?</div>
-      <div class="pf"><span class="who">밥이좋아</span><span>· 34분 전</span><span class="r"><span>♡ 15</span><span>💬 22</span></span></div>
-    </div>
-    <div class="p">
-      <div class="pt">기숙사 택배 분실 겪어보신 분</div>
-      <div class="pb">무인택배함에서 사라졌는데 어디에 문의해야 하나요ㅠㅠ</div>
-      <div class="pf"><span class="who">익명</span><span>· 1시간 전</span><span class="r"><span>♡ 8</span><span>💬 6</span></span></div>
-    </div>
-    <div class="p">
-      <div class="pt">[투표] 이번 축제 라인업 어때요?</div>
-      <div class="pb">개인적으로는 만족... 여러분 생각은?</div>
-      <div class="pf"><span class="who">축제기대</span><span>· 2시간 전</span><span class="r"><span>♡ 30</span><span>💬 11</span></span></div>
-    </div>
-  </div>
-
-  <div class="fab">✎</div>
+  <div class="fab"><svg viewBox="0 0 24 24"><path d="m4 20 4-1 10-10-3-3L5 16Z"/><path d="m14 6 3 3"/></svg>글쓰기</div>
   <div class="tabbar">
-    <div class="tb3"><div class="d"></div>홈</div>
-    <div class="tb3"><div class="d"></div>중고책</div>
-    <div class="tb3"><div class="d"></div>모임</div>
-    <div class="tb3 on"><div class="d"></div>커뮤니티</div>
-    <div class="tb3"><div class="d"></div>마이</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>홈</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M5 4h12a2 2 0 0 1 2 2v15H7a2 2 0 0 1-2-2Z"/><path d="M19 17H7a2 2 0 0 0-2 2"/></svg>중고책</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3.5 19c.7-3 3-4.6 5.5-4.6S13.8 16 14.5 19"/><path d="M15.5 14.5c2 .2 3.7 1.6 4.3 4"/></svg>모임</div>
+    <div class="tab tab--on"><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>커뮤니티</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.6-6 8-6s6.6 2 8 6"/></svg>마이</div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

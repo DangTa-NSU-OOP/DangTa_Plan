@@ -7,112 +7,125 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#F5F6F7;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#F5F6F7;display:flex;flex-direction:column;position:relative;}
-  .appbar{height:52px;background:#fff;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex:none;}
-  .appbar .title{font-weight:700;font-size:16px;display:flex;align-items:center;gap:6px;}
-  .appbar .caret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #111827;}
-  .icons{display:flex;gap:14px;}
-  .ic{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .ic.badge{position:relative;}
-  .ic.badge::after{content:"";position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:999px;background:#0EA5A4;}
-  .chips{display:flex;gap:8px;padding:12px 16px;overflow:hidden;background:#fff;border-bottom:1px solid #E5E7EB;}
-  .chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1px solid #E5E7EB;background:#fff;font-size:13px;color:#6B7280;white-space:nowrap;flex:none;}
-  .chip.on{background:#E6F7F6;border-color:#0EA5A4;color:#0B7C7B;font-weight:600;}
-  .feed{flex:1;padding:4px 0;}
-  .item{display:flex;gap:12px;padding:14px 16px;background:#fff;border-bottom:1px solid #EEF0F1;}
-  .thumb{width:96px;height:96px;border-radius:10px;flex:none;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 8px,#E4E6E8 8px,#E4E6E8 16px);border:1px solid #E0E2E5;display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:11px;}
-  .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;}
-  .ttl{font-size:15px;line-height:1.35;}
-  .sub{font-size:12px;color:#9CA3AF;}
-  .price{font-size:16px;font-weight:700;margin-top:2px;}
-  .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 6px;border-radius:6px;background:#FEF3E2;color:#B45309;}
-  .stats{display:flex;gap:10px;justify-content:flex-end;font-size:12px;color:#9CA3AF;margin-top:4px;}
-  .fab{position:absolute;right:16px;bottom:76px;width:52px;height:52px;border-radius:999px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(14,165,164,.4);}
-  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
-  .tabbar .t{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
-  .tabbar .t.on{color:#0EA5A4;font-weight:600;}
-  .tabbar .t .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
-  .tabbar .t.on .d{background:#0EA5A4;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#F5F6F7;color:#111827;-webkit-font-smoothing:antialiased;}
+  a{color:#0B7C7B;text-decoration:none;} a:hover{color:#0B8C8B;}
+  svg{display:block;}
+  .screen{width:390px;min-height:880px;background:#F5F6F7;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .appbar{height:56px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 16px;flex:none;border-bottom:1px solid #EEF0F1;}
+  .appbar__title{font-size:17px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;gap:3px;}
+  .appbar__title svg{width:18px;height:18px;stroke:#111827;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar__actions{display:flex;align-items:center;}
+  .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;position:relative;}
+  .iconbtn svg{width:23px;height:23px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .dot{position:absolute;top:8px;right:9px;width:7px;height:7px;border-radius:999px;background:#0EA5A4;border:1.5px solid #fff;}
+  .count{position:absolute;top:4px;right:2px;min-width:16px;height:16px;padding:0 4px;border-radius:999px;background:#F04452;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;border:1.5px solid #fff;}
+  .chips{display:flex;gap:7px;padding:11px 16px;background:#fff;border-bottom:1px solid #EEF0F1;overflow:hidden;}
+  .chip{flex:none;height:32px;padding:0 13px;border-radius:999px;border:1px solid #E3E6E8;background:#fff;font-size:13px;font-weight:500;color:#5B6570;display:inline-flex;align-items:center;white-space:nowrap;}
+  .chip--on{background:#0EA5A4;border-color:#0EA5A4;color:#fff;font-weight:700;}
+  .feed{flex:1;overflow:hidden;background:#fff;}
+  .item{display:flex;gap:13px;padding:16px;border-bottom:1px solid #F1F2F3;}
+  .thumb{width:98px;height:98px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .thumb svg{width:30px;height:30px;stroke:currentColor;stroke-width:1.5;fill:none;}
+  .thumb .state{position:absolute;inset:0;background:rgba(17,24,39,.52);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;}
+  .meta{flex:1;min-width:0;display:flex;flex-direction:column;}
+  .ttl{font-size:15px;font-weight:500;line-height:1.4;color:#1B1F24;}
+  .loc{font-size:12px;color:#9AA0A6;margin-top:3px;}
+  .price{font-size:16px;font-weight:800;margin-top:5px;letter-spacing:-.3px;}
+  .price .free{color:#0EA5A4;}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;vertical-align:middle;margin-left:4px;}
+  .badge--resv{background:#EDF7F6;color:#0B8C8B;}
+  .foot{display:flex;gap:12px;justify-content:flex-end;margin-top:auto;padding-top:6px;color:#B0B5BA;font-size:12px;}
+  .foot span{display:flex;align-items:center;gap:3px;}
+  .foot svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;}
+  .fab{position:absolute;right:16px;bottom:82px;height:48px;padding:0 18px 0 14px;border-radius:999px;background:#0EA5A4;color:#fff;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;box-shadow:0 8px 18px rgba(14,165,164,.4);}
+  .fab svg{width:19px;height:19px;stroke:currentColor;stroke-width:2.6;fill:none;stroke-linecap:round;}
+  .tabbar{height:64px;background:#fff;border-top:1px solid #EEF0F1;display:flex;flex:none;padding-bottom:4px;}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:500;color:#B0B5BB;}
+  .tab svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .tab--on{color:#0EA5A4;font-weight:700;}
 </style>
 </helmet>
 <div class="screen">
   <div class="appbar">
-    <div class="title">한국대 · 공대 <span class="caret"></span></div>
-    <div class="icons"><div class="ic"></div><div class="ic badge"></div><div class="ic badge"></div></div>
+    <div class="appbar__title">한국대 · 공대 <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+    <div class="appbar__actions">
+      <div class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></div>
+      <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg><span class="count">3</span></div>
+    </div>
   </div>
 
   <div class="chips">
-    <span class="chip on">전체</span>
+    <span class="chip chip--on">전체</span>
     <span class="chip">디지털기기</span>
     <span class="chip">생활가전</span>
-    <span class="chip">가구</span>
+    <span class="chip">가구·인테리어</span>
     <span class="chip">의류</span>
   </div>
 
   <div class="feed">
     <div class="item">
-      <div class="thumb">사진</div>
+      <div class="thumb ph" style="background:linear-gradient(135deg,#EDF3FF,#D9E6FF);color:#AFC6ED"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
       <div class="meta">
         <div class="ttl">자취 미니 냉장고 (1년 사용, 상태 좋음)</div>
-        <div class="sub">공대 5호관 · 3분 전</div>
+        <div class="loc">공대 5호관 · 3분 전</div>
         <div class="price">60,000원</div>
-        <div class="stats">♡ 3 · 💬 2</div>
+        <div class="foot"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>3</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>2</span></div>
       </div>
     </div>
     <div class="item">
-      <div class="thumb">사진</div>
+      <div class="thumb ph" style="background:linear-gradient(135deg,#F1EEFF,#E2DCFF);color:#C0B9E8"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg><div class="state">예약중</div></div>
       <div class="meta">
-        <div class="ttl">아이패드 9세대 64GB + 애플펜슬 <span class="tag">예약중</span></div>
-        <div class="sub">중앙도서관 · 12분 전</div>
+        <div class="ttl">아이패드 9세대 64GB + 애플펜슬 1세대<span class="badge badge--resv">예약중</span></div>
+        <div class="loc">중앙도서관 · 12분 전</div>
         <div class="price">280,000원</div>
-        <div class="stats">♡ 11 · 💬 5</div>
+        <div class="foot"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>11</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>5</span></div>
       </div>
     </div>
     <div class="item">
-      <div class="thumb">사진</div>
+      <div class="thumb ph" style="background:linear-gradient(135deg,#EAF7EE,#D8F0DF);color:#A7D5B3"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
       <div class="meta">
-        <div class="ttl">책상 스탠드 (LED, 밝기조절)</div>
-        <div class="sub">2기숙사 · 34분 전</div>
-        <div class="price">나눔</div>
-        <div class="stats">♡ 8 · 💬 4</div>
+        <div class="ttl">책상 스탠드 (LED, 밝기 3단계 조절)</div>
+        <div class="loc">2기숙사 A동 · 34분 전</div>
+        <div class="price"><span class="free">나눔</span></div>
+        <div class="foot"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>8</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>4</span></div>
       </div>
     </div>
     <div class="item">
-      <div class="thumb">사진</div>
+      <div class="thumb ph" style="background:linear-gradient(135deg,#FFF3E4,#FFE7C7);color:#E7C58E"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
       <div class="meta">
-        <div class="ttl">전공 필수 계산기 공학용 (fx-570)</div>
-        <div class="sub">공대 3호관 · 1시간 전</div>
+        <div class="ttl">공학용 계산기 fx-570EX (거의 새것)</div>
+        <div class="loc">공대 3호관 · 1시간 전</div>
         <div class="price">15,000원</div>
-        <div class="stats">♡ 2 · 💬 1</div>
+        <div class="foot"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>2</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>1</span></div>
       </div>
     </div>
     <div class="item">
-      <div class="thumb">사진</div>
+      <div class="thumb ph" style="background:linear-gradient(135deg,#FFEEF2,#FFDEE7);color:#EDB4C2"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
       <div class="meta">
-        <div class="ttl">겨울 패딩 (블랙, L) 거의 새것</div>
-        <div class="sub">학생회관 · 2시간 전</div>
+        <div class="ttl">겨울 롱패딩 (블랙, 여성 L) 한 시즌 착용</div>
+        <div class="loc">학생회관 · 2시간 전</div>
         <div class="price">45,000원</div>
-        <div class="stats">♡ 6 · 💬 0</div>
+        <div class="foot"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>6</span><span><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>0</span></div>
       </div>
     </div>
   </div>
 
-  <div class="fab">+</div>
+  <div class="fab"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>글쓰기</div>
 
   <div class="tabbar">
-    <div class="t on"><div class="d"></div>홈</div>
-    <div class="t"><div class="d"></div>중고책</div>
-    <div class="t"><div class="d"></div>모임</div>
-    <div class="t"><div class="d"></div>커뮤니티</div>
-    <div class="t"><div class="d"></div>마이</div>
+    <div class="tab tab--on"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>홈</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M5 4h12a2 2 0 0 1 2 2v15H7a2 2 0 0 1-2-2Z"/><path d="M19 17H7a2 2 0 0 0-2 2"/></svg>중고책</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3.5 19c.7-3 3-4.6 5.5-4.6S13.8 16 14.5 19"/><path d="M15.5 14.5c2 .2 3.7 1.6 4.3 4"/></svg>모임</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>커뮤니티</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.6-6 8-6s6.6 2 8 6"/></svg>마이</div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

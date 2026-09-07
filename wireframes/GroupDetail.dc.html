@@ -7,73 +7,91 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;position:relative;}
-  .banner{height:150px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 10px,#E4E6E8 10px,#E4E6E8 20px);position:relative;flex:none;}
-  .banner .back{position:absolute;top:14px;left:14px;width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,.9);}
-  .head{padding:16px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #EEF0F1;}
-  .name{font-size:19px;font-weight:800;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .banner{height:158px;flex:none;position:relative;background:linear-gradient(135deg,#0EA5A4,#0C8C8B);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);}
+  .banner>svg{width:40px;height:40px;stroke:currentColor;stroke-width:1.4;fill:none;}
+  .banner .back{position:absolute;top:14px;left:14px;width:36px;height:36px;border-radius:999px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;}
+  .banner .back svg{width:22px;height:22px;stroke:#26313F;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .head{padding:16px;display:flex;flex-direction:column;gap:9px;border-bottom:1px solid #F1F2F3;}
+  .name{font-size:20px;font-weight:800;letter-spacing:-.3px;}
   .tags{display:flex;gap:6px;}
-  .badge{font-size:11px;color:#0B7C7B;background:#E6F7F6;border-radius:6px;padding:3px 8px;}
-  .badge.gray{color:#6B7280;background:#F3F4F6;}
-  .desc{font-size:14px;line-height:1.6;color:#374151;}
-  .tabs{display:flex;border-bottom:1px solid #E5E7EB;}
-  .tabs .tab{flex:1;text-align:center;padding:12px 0;font-size:13px;color:#9CA3AF;}
-  .tabs .tab.on{color:#0EA5A4;font-weight:700;border-bottom:2px solid #0EA5A4;}
+  .badge{font-size:11px;font-weight:700;color:#0B7C7B;background:#EDF7F6;border-radius:6px;padding:3px 8px;}
+  .badge.gray{color:#8A9098;background:#F1F2F3;}
+  .desc{font-size:14px;line-height:1.7;color:#37414B;}
+  .tabs{display:flex;border-bottom:1px solid #EEF0F1;position:sticky;top:0;background:#fff;}
+  .tabs .tab{flex:1;text-align:center;padding:13px 0;font-size:13px;font-weight:600;color:#9AA0A6;}
+  .tabs .tab.on{color:#0EA5A4;font-weight:800;box-shadow:inset 0 -2px 0 #0EA5A4;}
+  .scroll{flex:1;overflow:hidden;}
   .sec{padding:16px;border-bottom:8px solid #F5F6F7;}
-  .sec h4{margin:0 0 10px;font-size:13px;color:#6B7280;}
+  .sec:last-child{border-bottom:none;}
+  .sec h4{font-size:12px;font-weight:800;color:#9AA0A6;margin-bottom:12px;letter-spacing:.2px;}
   .members{display:flex;gap:8px;}
-  .members .m{width:40px;height:40px;border-radius:999px;background:#E5E7EB;}
-  .sched{display:flex;gap:12px;align-items:flex-start;}
-  .sched .date{width:44px;text-align:center;flex:none;}
-  .sched .date .d{font-size:18px;font-weight:800;}
-  .sched .date .mo{font-size:11px;color:#9CA3AF;}
-  .sched .si .t{font-size:14px;font-weight:600;}
-  .sched .si .s{font-size:12px;color:#9CA3AF;}
-  .post{padding:12px 0;border-bottom:1px solid #F2F3F4;}
-  .post .pt{font-size:14px;font-weight:600;}
-  .post .ps{font-size:12px;color:#9CA3AF;margin-top:2px;}
-  .notice{font-size:11px;color:#B45309;background:#FEF3E2;border-radius:5px;padding:1px 6px;margin-right:6px;}
-  .cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #E5E7EB;padding:12px 16px;flex:none;}
-  .cta .btn{height:48px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;}
+  .members .m{width:40px;height:40px;border-radius:999px;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+  .sched{display:flex;gap:13px;align-items:flex-start;}
+  .sched .date{width:46px;text-align:center;flex:none;background:#F0FAF9;border-radius:10px;padding:6px 0;}
+  .sched .date .d{font-size:18px;font-weight:800;color:#0B7C7B;line-height:1;}
+  .sched .date .mo{font-size:10px;color:#5EA9A6;font-weight:600;margin-top:3px;}
+  .sched .si .t{font-size:14px;font-weight:700;}
+  .sched .si .s{font-size:12px;color:#9AA0A6;margin-top:3px;line-height:1.5;}
+  .post{padding:12px 0;border-bottom:1px solid #F5F6F7;}
+  .post:last-child{border-bottom:none;}
+  .post .pt{font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;}
+  .post .ps{font-size:11.5px;color:#B0B5BA;margin-top:3px;}
+  .notice{font-size:10px;font-weight:800;color:#D97706;background:#FEF3E2;border-radius:5px;padding:2px 6px;}
+  .cta{border-top:1px solid #EEF0F1;padding:12px 16px 16px;flex:none;background:#fff;}
+  .cta .btn{height:50px;border-radius:13px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="banner"><div class="back"></div></div>
+  <div class="banner">
+    <svg viewBox="0 0 24 24"><path d="M13 4 8 20M18 8l-4 4 4 4M6 8l-4 4 4 4"/></svg>
+    <div class="back"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div>
+  </div>
   <div class="head">
-    <div class="name">한국대 아침 러닝크루 🏃</div>
+    <div class="name">한국대 아침 러닝크루</div>
     <div class="tags"><span class="badge">운동</span><span class="badge gray">승인제</span><span class="badge gray">멤버 24 / 30</span></div>
-    <div class="desc">주 3회(월·수·금) 아침 6:30, 대운동장에서 5km 함께 뜁니다. 페이스 나눠서 뛰니 초보도 환영해요. 가입 시 목표 한 줄만 적어주세요!</div>
+    <div class="desc">주 3회(월·수·금) 아침 6:30, 대운동장에서 5km 함께 뜁니다. 페이스를 나눠서 뛰니 초보도 환영해요. 가입할 때 이번 학기 목표 한 줄만 적어주세요!</div>
   </div>
-  <div class="tabs">
-    <div class="tab on">소개</div>
-    <div class="tab">게시판</div>
-    <div class="tab">일정</div>
-    <div class="tab">멤버</div>
-  </div>
-  <div class="sec">
-    <h4>멤버 24명</h4>
-    <div class="members"><div class="m"></div><div class="m"></div><div class="m"></div><div class="m"></div><div class="m"></div><div class="m"></div></div>
-  </div>
-  <div class="sec">
-    <h4>다가오는 일정</h4>
-    <div class="sched">
-      <div class="date"><div class="d">10</div><div class="mo">9월 수</div></div>
-      <div class="si"><div class="t">정기 러닝 5km</div><div class="s">오전 6:30 · 대운동장 트랙 · 참석 12</div></div>
+  <div class="scroll">
+    <div class="tabs">
+      <div class="tab on">소개</div>
+      <div class="tab">게시판</div>
+      <div class="tab">일정</div>
+      <div class="tab">멤버</div>
     </div>
-  </div>
-  <div class="sec" style="border-bottom:none;">
-    <h4>최근 게시글</h4>
-    <div class="post"><div class="pt"><span class="notice">공지</span>우천 시 운영 방침 안내</div><div class="ps">모임장 · 2일 전 · 댓글 5</div></div>
-    <div class="post"><div class="pt">오늘 러닝 인증 🔥</div><div class="ps">달리는곰 · 5시간 전 · 댓글 3</div></div>
+    <div class="sec">
+      <h4>멤버 24명</h4>
+      <div class="members">
+        <div class="m" style="background:#0EA5A4">김</div>
+        <div class="m" style="background:#7C6BD6">이</div>
+        <div class="m" style="background:#E4849B">박</div>
+        <div class="m" style="background:#3B9AE1">최</div>
+        <div class="m" style="background:#5FB49C">정</div>
+        <div class="m" style="background:#EEF0F1;color:#8A9098">+19</div>
+      </div>
+    </div>
+    <div class="sec">
+      <h4>다가오는 일정</h4>
+      <div class="sched">
+        <div class="date"><div class="d">10</div><div class="mo">9월 수</div></div>
+        <div class="si"><div class="t">정기 러닝 5km</div><div class="s">오전 6:30 · 대운동장 트랙 · 참석 12명</div></div>
+      </div>
+    </div>
+    <div class="sec">
+      <h4>최근 게시글</h4>
+      <div class="post"><div class="pt"><span class="notice">공지</span>우천 시 운영 방침 안내</div><div class="ps">모임장 · 2일 전 · 댓글 5</div></div>
+      <div class="post"><div class="pt">오늘 러닝 인증 남깁니다</div><div class="ps">달리는곰 · 5시간 전 · 댓글 3</div></div>
+      <div class="post"><div class="pt">다음 주 코스 변경 제안</div><div class="ps">새벽조 · 1일 전 · 댓글 8</div></div>
+    </div>
   </div>
   <div class="cta"><div class="btn">가입 신청하기</div></div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

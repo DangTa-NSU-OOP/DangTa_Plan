@@ -7,76 +7,91 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
-  .appbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #EEF0F1;flex:none;}
-  .appbar .x{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 12px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .appbar .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   .appbar .t{font-size:16px;font-weight:700;}
-  .appbar .s{font-size:15px;color:#9CA3AF;font-weight:600;}
-  .body{flex:1;padding:16px;display:flex;flex-direction:column;gap:18px;}
-  .photos{display:flex;gap:8px;}
-  .add{width:76px;height:76px;border-radius:10px;border:1px dashed #C7CBCF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#9CA3AF;font-size:11px;flex:none;}
-  .shot{width:76px;height:76px;border-radius:10px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 8px,#E4E6E8 8px,#E4E6E8 16px);flex:none;}
-  .field{display:flex;flex-direction:column;gap:8px;}
-  .label{font-size:13px;color:#6B7280;font-weight:600;}
-  .line{border-bottom:1px solid #E5E7EB;padding-bottom:10px;font-size:15px;}
-  .line.ph{color:#9CA3AF;}
+  .appbar .save{font-size:14px;font-weight:600;color:#9AA0A6;padding:0 12px;}
+  .scroll{flex:1;overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:22px;}
+  .photos{display:flex;gap:9px;}
+  .add{width:78px;height:78px;border-radius:12px;border:1.5px solid #E3E6E8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#9AA0A6;font-size:11px;font-weight:600;flex:none;}
+  .add svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.9;fill:none;}
+  .add b{color:#0EA5A4;}
+  .shot{width:78px;height:78px;border-radius:12px;flex:none;position:relative;display:flex;align-items:center;justify-content:center;color:#B9C0C7;}
+  .shot svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.5;fill:none;}
+  .shot .x{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:999px;background:#37414B;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .field{display:flex;flex-direction:column;gap:10px;}
+  .lb{font-size:13px;font-weight:700;color:#37414B;}
+  .line{border-bottom:1.5px solid #EEF0F1;padding-bottom:11px;font-size:15px;font-weight:500;}
+  .line.ph{color:#AEB4BB;font-weight:400;}
+  .line.strong{font-size:17px;font-weight:800;}
+  .line.loc{display:flex;align-items:center;gap:7px;}
+  .line.loc svg{width:16px;height:16px;stroke:#0EA5A4;stroke-width:2;fill:none;flex:none;}
+  .shot .x{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:999px;background:#37414B;display:flex;align-items:center;justify-content:center;}
+  .shot .x svg{width:11px;height:11px;stroke:#fff;stroke-width:2.6;fill:none;stroke-linecap:round;}
   .seg{display:flex;gap:8px;}
-  .seg .o{flex:1;height:40px;border:1px solid #E5E7EB;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#6B7280;}
-  .seg .o.on{border-color:#0EA5A4;background:#E6F7F6;color:#0B7C7B;font-weight:600;}
-  .area{min-height:90px;border-bottom:1px solid #E5E7EB;font-size:14px;color:#9CA3AF;line-height:1.5;}
-  .spacer{flex:1;}
-  .btn{height:52px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin:12px 16px 20px;}
+  .seg .o{flex:1;height:42px;border:1.5px solid #E3E6E8;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#6B7280;}
+  .seg .o.on{border-color:#0EA5A4;background:#F0FAF9;color:#0B7C7B;}
+  .row{display:flex;align-items:center;gap:8px;font-size:13px;color:#37414B;font-weight:500;}
+  .check{width:20px;height:20px;border-radius:6px;border:1.5px solid #0EA5A4;background:#0EA5A4;display:flex;align-items:center;justify-content:center;}
+  .check svg{width:13px;height:13px;stroke:#fff;stroke-width:3;fill:none;}
+  .area{min-height:96px;border:1.5px solid #EEF0F1;border-radius:12px;padding:13px;font-size:14px;color:#AEB4BB;line-height:1.65;}
+  .btn{height:54px;border-radius:13px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;margin:6px 16px 18px;flex:none;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="appbar"><div class="x"></div><div class="t">중고거래 글쓰기</div><div class="s">임시저장</div></div>
-  <div class="body">
+  <div class="appbar">
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+    <div class="t">중고거래 글쓰기</div>
+    <div class="save">임시저장</div>
+  </div>
+  <div class="scroll">
     <div class="photos">
-      <div class="add"><div style="font-size:18px;">＋</div>1/10</div>
-      <div class="shot"></div>
-      <div class="shot"></div>
+      <div class="add"><svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L18 8h2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg><b>2</b> / 10</div>
+      <div class="shot" style="background:linear-gradient(135deg,#EDF3FF,#DCE7FF)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg><span class="x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span></div>
+      <div class="shot" style="background:linear-gradient(135deg,#EAF7EE,#D8F0DF)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg><span class="x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span></div>
     </div>
 
     <div class="field">
-      <div class="label">제목</div>
-      <div class="line ph">글 제목을 입력하세요</div>
+      <div class="lb">제목</div>
+      <div class="line">자취 미니 냉장고 (1년 사용, 상태 좋음)</div>
     </div>
 
     <div class="field">
-      <div class="label">카테고리</div>
+      <div class="lb">카테고리</div>
       <div class="line">생활가전</div>
     </div>
 
     <div class="field">
-      <div class="label">거래 방식</div>
+      <div class="lb">거래 방식</div>
       <div class="seg"><div class="o on">직거래</div><div class="o">택배</div><div class="o">둘 다</div></div>
     </div>
 
     <div class="field">
-      <div class="label">가격</div>
-      <div class="line">60,000원</div>
-      <div class="seg"><div class="o">나눔(무료)</div><div class="o on">가격 제안 받기</div></div>
+      <div class="lb">가격</div>
+      <div class="line strong">60,000원</div>
+      <div class="row"><span class="check"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span>가격 제안 받기</div>
     </div>
 
     <div class="field">
-      <div class="label">캠퍼스 거래 장소</div>
-      <div class="line">📍 공대 5호관</div>
+      <div class="lb">캠퍼스 거래 장소</div>
+      <div class="line loc"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>공대 5호관</div>
     </div>
 
     <div class="field">
-      <div class="label">자세한 설명</div>
-      <div class="area">상품 상태, 사용 기간, 거래 희망 시간 등을 적어주세요.</div>
+      <div class="lb">자세한 설명</div>
+      <div class="area">기숙사 나가면서 팝니다. 딱 1년 사용했고 소음 거의 없어요. 내부 청소 다 해뒀습니다.</div>
     </div>
   </div>
-  <div class="spacer"></div>
   <div class="btn">작성 완료</div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

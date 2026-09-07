@@ -7,80 +7,87 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#F5F6F7;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;display:flex;flex-direction:column;background:#F5F6F7;}
-  .appbar{height:52px;background:#fff;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #EEF0F1;flex:none;}
-  .appbar .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .appbar .nm{font-size:15px;font-weight:700;flex:1;}
-  .appbar .temp{font-size:12px;font-weight:700;color:#F59E0B;}
-  .appbar .more{width:22px;height:22px;border-radius:6px;background:#E5E7EB;}
-  .tradebar{background:#fff;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;gap:10px;padding:10px 14px;flex:none;}
-  .tradebar .tb{width:40px;height:40px;border-radius:8px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 6px,#E4E6E8 6px,#E4E6E8 12px);flex:none;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#EDEEF0;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#EDEEF0;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 10px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .iconbtn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .appbar .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar .nm{font-size:15px;font-weight:700;flex:1;display:flex;align-items:center;gap:6px;}
+  .appbar .temp{font-size:12px;font-weight:800;color:#F59E0B;}
+  .tradebar{background:#fff;border-bottom:1px solid #EEF0F1;display:flex;align-items:center;gap:11px;padding:10px 14px;flex:none;}
+  .tradebar .tb{width:42px;height:42px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;color:#AFC6ED;background:linear-gradient(135deg,#EDF3FF,#DCE7FF);}
+  .tradebar .tb svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none;}
   .tradebar .ti{flex:1;}
   .tradebar .ti .p{font-size:14px;font-weight:800;}
-  .tradebar .ti .s{font-size:11px;color:#9CA3AF;}
-  .tradebar .act{font-size:12px;font-weight:700;color:#0B7C7B;border:1px solid #0EA5A4;border-radius:8px;padding:6px 10px;}
-  .stream{flex:1;padding:16px 14px;display:flex;flex-direction:column;gap:10px;}
-  .sys{align-self:center;font-size:11px;color:#0B7C7B;background:#E6F7F6;border-radius:999px;padding:5px 12px;}
-  .in{align-self:flex-start;max-width:74%;background:#fff;border:1px solid #EEF0F1;border-radius:14px;border-top-left-radius:4px;padding:9px 12px;font-size:14px;line-height:1.4;}
-  .out{align-self:flex-end;max-width:74%;background:#0EA5A4;color:#fff;border-radius:14px;border-top-right-radius:4px;padding:9px 12px;font-size:14px;line-height:1.4;}
-  .stamp{font-size:10px;color:#9CA3AF;align-self:flex-end;}
+  .tradebar .ti .s{font-size:11px;color:#9AA0A6;margin-top:1px;}
+  .tradebar .act{font-size:12px;font-weight:700;color:#0EA5A4;border:1.5px solid #0EA5A4;border-radius:9px;padding:7px 12px;}
+  .stream{flex:1;overflow:hidden;padding:16px 14px;display:flex;flex-direction:column;gap:9px;}
+  .day{align-self:center;font-size:11px;color:#8A9098;background:rgba(0,0,0,.06);border-radius:999px;padding:3px 11px;margin-bottom:4px;}
+  .sys{align-self:center;font-size:11.5px;color:#5B6570;background:#E1E6E5;border-radius:999px;padding:5px 13px;text-align:center;max-width:80%;}
+  .in{align-self:flex-start;max-width:74%;background:#fff;border-radius:16px;border-top-left-radius:5px;padding:9px 13px;font-size:14px;line-height:1.45;}
+  .out{align-self:flex-end;max-width:74%;background:#0EA5A4;color:#fff;border-radius:16px;border-top-right-radius:5px;padding:9px 13px;font-size:14px;line-height:1.45;}
+  .stamp{font-size:10px;color:#8A9098;padding:0 4px;}
+  .stamp.r{align-self:flex-end;}
   .stamp.l{align-self:flex-start;}
-  .apptcard{align-self:flex-start;max-width:80%;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:6px;}
-  .apptcard .h{font-size:12px;color:#0B7C7B;font-weight:700;}
-  .apptcard .l{font-size:13px;}
-  .apptcard .b{margin-top:4px;height:34px;border-radius:8px;background:#E6F7F6;color:#0B7C7B;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
-  .composer{background:#fff;border-top:1px solid #E5E7EB;display:flex;align-items:center;gap:10px;padding:10px 14px;flex:none;}
-  .composer .plus{width:26px;height:26px;border-radius:6px;background:#E5E7EB;flex:none;}
-  .composer .box{flex:1;height:38px;border-radius:999px;background:#F3F4F6;display:flex;align-items:center;padding:0 14px;font-size:13px;color:#9CA3AF;}
-  .composer .send{width:34px;height:34px;border-radius:999px;background:#0EA5A4;flex:none;}
+  .appt{align-self:flex-start;max-width:82%;background:#fff;border-radius:16px;border-top-left-radius:5px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+  .appt .h{font-size:12px;color:#0B7C7B;font-weight:800;display:flex;align-items:center;gap:5px;}
+  .appt .h svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;}
+  .appt .r{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;}
+  .appt .r svg{width:15px;height:15px;stroke:#6B7280;stroke-width:2;fill:none;flex:none;}
+  .appt .b{margin-top:4px;height:38px;border-radius:10px;background:#0EA5A4;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .composer{background:#fff;border-top:1px solid #EEF0F1;display:flex;align-items:center;gap:10px;padding:10px 12px 14px;flex:none;}
+  .composer .plus{width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:#8A9098;flex:none;}
+  .composer .plus svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;}
+  .composer .box{flex:1;height:40px;border-radius:999px;background:#F1F2F3;display:flex;align-items:center;padding:0 15px;font-size:13px;color:#9AA0A6;}
+  .composer .send{width:36px;height:36px;border-radius:999px;background:#0EA5A4;flex:none;display:flex;align-items:center;justify-content:center;}
+  .composer .send svg{width:18px;height:18px;stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 </style>
 </helmet>
 <div class="screen">
   <div class="appbar">
-    <div class="back"></div>
-    <div class="nm">공대냉장고요정</div>
-    <div class="temp">42.3℃</div>
-    <div class="more"></div>
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div>
+    <div class="nm">공대냉장고요정 <span class="temp">42.3℃</span></div>
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="18" r="1.4"/></svg></div>
   </div>
   <div class="tradebar">
-    <div class="tb"></div>
+    <div class="tb"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
     <div class="ti"><div class="p">60,000원</div><div class="s">자취 미니 냉장고 · 판매중</div></div>
     <div class="act">거래완료</div>
   </div>
   <div class="stream">
-    <div class="sys">채팅방이 열렸어요. 매너있는 거래를 부탁드려요.</div>
+    <div class="day">2026년 9월 8일</div>
+    <div class="sys">매너있는 거래 부탁드려요. 만나서 직접 확인 후 거래하세요.</div>
 
     <div class="in">안녕하세요! 냉장고 아직 있나요?</div>
     <div class="stamp l">오후 2:31</div>
 
     <div class="out">네 있어요~ 오늘 직거래 가능하세요?</div>
-    <div class="stamp">오후 2:33 · 읽음</div>
+    <div class="stamp r">오후 2:33 · 읽음</div>
 
-    <div class="in">네 저녁에 공대 5호관 쪽 괜찮아요</div>
+    <div class="in">네 저녁에 공대 5호관 쪽이면 괜찮아요</div>
 
-    <div class="apptcard">
-      <div class="h">📅 약속 잡기</div>
-      <div class="l">9월 10일 (수) 오후 6:00</div>
-      <div class="l">📍 공대 5호관 정문 앞</div>
+    <div class="appt">
+      <div class="h"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>약속 잡기</div>
+      <div class="r"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>9월 10일 (수) 오후 6:00</div>
+      <div class="r"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>공대 5호관 정문 앞</div>
       <div class="b">약속 수락하기</div>
     </div>
     <div class="stamp l">오후 2:35</div>
 
-    <div class="out">좋아요! 그때 봬요 🙌</div>
-    <div class="stamp">오후 2:36 · 읽음</div>
+    <div class="out">좋아요! 그때 뵐게요</div>
+    <div class="stamp r">오후 2:36 · 읽음</div>
   </div>
   <div class="composer">
-    <div class="plus"></div>
+    <div class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
     <div class="box">메시지 입력</div>
-    <div class="send"></div>
+    <div class="send"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

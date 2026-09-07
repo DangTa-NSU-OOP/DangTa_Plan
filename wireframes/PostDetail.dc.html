@@ -7,46 +7,53 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
-  .appbar{height:52px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #EEF0F1;flex:none;}
-  .appbar .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .appbar .t{font-size:14px;color:#6B7280;flex:1;}
-  .appbar .more{width:22px;height:22px;border-radius:6px;background:#E5E7EB;}
-  .body{flex:1;overflow:hidden;}
-  .author{display:flex;align-items:center;gap:10px;padding:14px 16px;}
-  .author .pf{width:36px;height:36px;border-radius:999px;background:#E5E7EB;}
-  .author .nm{font-size:13px;font-weight:600;}
-  .author .ti{font-size:11px;color:#9CA3AF;}
-  .content{padding:0 16px 14px;}
-  .content h1{font-size:18px;font-weight:700;margin:6px 0 10px;line-height:1.35;}
-  .content p{font-size:15px;line-height:1.7;color:#1F2937;margin:0 0 12px;}
-  .react{display:flex;gap:10px;padding:12px 16px;border-top:1px solid #EEF0F1;border-bottom:8px solid #F5F6F7;}
-  .react .b{flex:1;height:38px;border:1px solid #E5E7EB;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#6B7280;}
-  .react .b.on{border-color:#0EA5A4;color:#0B7C7B;background:#F0FBFA;font-weight:600;}
-  .clabel{padding:12px 16px 4px;font-size:13px;font-weight:700;color:#374151;}
-  .cm{padding:12px 16px;border-bottom:1px solid #F4F5F6;display:flex;flex-direction:column;gap:4px;}
-  .cm.reply{padding-left:40px;background:#FAFBFB;}
-  .cm .ch{display:flex;align-items:center;gap:6px;}
-  .cm .who{font-size:12px;font-weight:600;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;gap:6px;padding:0 10px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .iconbtn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .appbar .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar .t{font-size:14px;color:#6B7280;font-weight:600;flex:1;}
+  .scroll{flex:1;overflow:hidden;}
+  .author{display:flex;align-items:center;gap:11px;padding:15px 16px;}
+  .author .av{width:38px;height:38px;border-radius:999px;background:#9AA3AC;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+  .author .nm{font-size:13.5px;font-weight:700;}
+  .author .ti{font-size:11px;color:#B0B5BA;margin-top:1px;}
+  .content{padding:0 16px 16px;}
+  .content h1{font-size:19px;font-weight:800;line-height:1.4;margin:4px 0 12px;letter-spacing:-.3px;}
+  .content p{font-size:15px;line-height:1.8;color:#2A323B;}
+  .react{display:flex;gap:8px;padding:14px 16px;border-top:1px solid #F1F2F3;border-bottom:8px solid #F5F6F7;}
+  .react .b{flex:1;height:40px;border:1.5px solid #E9EBED;border-radius:11px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;color:#6B7280;}
+  .react .b svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;}
+  .react .b.on{border-color:#0EA5A4;color:#0B7C7B;background:#F0FAF9;}
+  .clabel{padding:14px 16px 6px;font-size:13px;font-weight:800;color:#37414B;}
+  .cm{padding:13px 16px;border-bottom:1px solid #F5F6F7;display:flex;flex-direction:column;gap:5px;}
+  .cm.reply{padding-left:38px;background:#FBFCFC;}
+  .cm .who{font-size:12.5px;font-weight:700;color:#37414B;}
   .cm .who.op{color:#0B7C7B;}
-  .cm .tx{font-size:14px;line-height:1.5;}
-  .cm .cf{font-size:11px;color:#9CA3AF;display:flex;gap:12px;}
-  .composer{border-top:1px solid #E5E7EB;display:flex;align-items:center;gap:10px;padding:10px 14px;flex:none;}
-  .composer .anon{font-size:11px;color:#6B7280;display:flex;align-items:center;gap:4px;flex:none;}
-  .composer .chkbox{width:16px;height:16px;border-radius:4px;background:#0EA5A4;}
-  .composer .box{flex:1;height:38px;border-radius:999px;background:#F3F4F6;display:flex;align-items:center;padding:0 14px;font-size:13px;color:#9CA3AF;}
-  .composer .send{width:34px;height:34px;border-radius:999px;background:#0EA5A4;flex:none;}
+  .cm .tx{font-size:14px;line-height:1.55;color:#2A323B;}
+  .cm .cf{font-size:11px;color:#B0B5BA;display:flex;gap:14px;align-items:center;}
+  .cm .cf b{font-weight:600;color:#8A9098;}
+  .composer{border-top:1px solid #EEF0F1;display:flex;align-items:center;gap:10px;padding:10px 12px 14px;flex:none;}
+  .composer .anon{font-size:11px;color:#0B7C7B;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;}
+  .composer .anon .cb{width:20px;height:20px;border-radius:6px;background:#0EA5A4;display:flex;align-items:center;justify-content:center;}
+  .composer .anon .cb svg{width:13px;height:13px;stroke:#fff;stroke-width:3;fill:none;}
+  .composer .box{flex:1;height:40px;border-radius:999px;background:#F1F2F3;display:flex;align-items:center;padding:0 15px;font-size:13px;color:#9AA0A6;}
+  .composer .send{width:36px;height:36px;border-radius:999px;background:#0EA5A4;flex:none;display:flex;align-items:center;justify-content:center;}
+  .composer .send svg{width:17px;height:17px;stroke:#fff;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="appbar"><div class="back"></div><div class="t">자유게시판</div><div class="more"></div></div>
-  <div class="body">
+  <div class="appbar">
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div>
+    <div class="t">자유게시판</div>
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="18" r="1.4"/></svg></div>
+  </div>
+  <div class="scroll">
     <div class="author">
-      <div class="pf"></div>
+      <div class="av">익</div>
       <div><div class="nm">익명 (글쓴이)</div><div class="ti">12분 전 · 조회 210</div></div>
     </div>
     <div class="content">
@@ -54,36 +61,41 @@
       <p>전공 3개인데 아직 하나도 안 봤어요. 큰일났다 싶어서 글 씁니다. 다들 보통 몇 주 전부터 시작하시나요? 벼락치기 가능한 과목이랑 아닌 과목도 궁금해요.</p>
     </div>
     <div class="react">
-      <div class="b on">♡ 좋아요 42</div>
-      <div class="b">🔖 스크랩 3</div>
-      <div class="b">↗ 공유</div>
+      <div class="b on"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-8.5C1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3C21 4.5 23 8 21.3 11.5 19 15.6 12 20 12 20Z"/></svg>좋아요 42</div>
+      <div class="b"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4Z"/></svg>스크랩 3</div>
+      <div class="b"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><path d="m8.2 10.8 6.6-3.6M8.2 13.2l6.6 3.6"/></svg>공유</div>
     </div>
 
     <div class="clabel">댓글 18</div>
     <div class="cm">
-      <div class="ch"><span class="who">익명1</span></div>
+      <div class="who">익명1</div>
       <div class="tx">저는 2주 전부터요. 전공은 1주로는 부족하더라고요</div>
-      <div class="cf"><span>10분 전</span><span>♡ 5</span><span>답글</span></div>
+      <div class="cf"><b>10분 전</b><span>좋아요 5</span><span>답글</span></div>
     </div>
     <div class="cm reply">
-      <div class="ch"><span class="who op">익명 (글쓴이)</span></div>
+      <div class="who op">익명 (글쓴이)</div>
       <div class="tx">헉 2주... 지금 시작해야겠네요 감사합니다</div>
-      <div class="cf"><span>8분 전</span><span>♡ 1</span></div>
+      <div class="cf"><b>8분 전</b><span>좋아요 1</span></div>
     </div>
     <div class="cm">
-      <div class="ch"><span class="who">익명2</span></div>
-      <div class="tx">과목마다 다르죠. 암기 과목은 3일 전 몰아치기 가능</div>
-      <div class="cf"><span>6분 전</span><span>♡ 8</span><span>답글</span></div>
+      <div class="who">익명2</div>
+      <div class="tx">과목마다 다르죠. 순수 암기 과목은 3일 전 몰아쳐도 됨</div>
+      <div class="cf"><b>6분 전</b><span>좋아요 8</span><span>답글</span></div>
+    </div>
+    <div class="cm">
+      <div class="who">익명3</div>
+      <div class="tx">전공은 최소 10일... 개념부터 다시 봐야 하면 2주</div>
+      <div class="cf"><b>3분 전</b><span>좋아요 2</span><span>답글</span></div>
     </div>
   </div>
   <div class="composer">
-    <div class="anon"><div class="chkbox"></div>익명</div>
+    <div class="anon"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span>익명</div>
     <div class="box">댓글을 입력하세요</div>
-    <div class="send"></div>
+    <div class="send"><svg viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

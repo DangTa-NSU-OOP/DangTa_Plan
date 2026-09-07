@@ -7,62 +7,71 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
-  .appbar{height:52px;display:flex;align-items:center;padding:0 16px;gap:12px;flex:none;}
-  .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .body{flex:1;padding:24px 24px;display:flex;flex-direction:column;gap:24px;}
-  .step{display:flex;gap:6px;}
-  .step .s{flex:1;height:4px;border-radius:999px;background:#E5E7EB;}
-  .step .s.on{background:#0EA5A4;}
-  .h1{font-size:22px;font-weight:800;line-height:1.35;}
-  .p{font-size:14px;color:#6B7280;line-height:1.5;}
-  .label{font-size:13px;color:#6B7280;margin-bottom:6px;}
-  .input{height:52px;border:1px solid #D1D5DB;border-radius:12px;display:flex;align-items:center;padding:0 14px;font-size:15px;color:#111827;}
-  .input.filled{border-color:#0EA5A4;}
-  .row{display:flex;gap:8px;}
-  .row .input{flex:1;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;padding:0 8px;flex:none;}
+  .iconbtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .body{flex:1;padding:8px 24px 24px;display:flex;flex-direction:column;gap:26px;}
+  .progress{display:flex;gap:6px;}
+  .progress i{flex:1;height:4px;border-radius:999px;background:#E9EBED;}
+  .progress i.on{background:#0EA5A4;}
+  .head h1{font-size:23px;font-weight:800;line-height:1.4;letter-spacing:-.4px;}
+  .head p{font-size:14px;color:#6B7280;line-height:1.6;margin-top:10px;}
+  .head p b{color:#0B7C7B;font-weight:700;}
+  .matched{display:flex;align-items:center;gap:10px;background:#F0FAF9;border:1px solid #CDEBE9;border-radius:14px;padding:14px;}
+  .matched .em{width:34px;height:34px;border-radius:9px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:none;}
+  .matched .tx{font-size:13.5px;font-weight:700;color:#0B7C7B;}
+  .matched .tx span{display:block;font-size:11.5px;font-weight:500;color:#5EA9A6;margin-top:2px;}
+  .label{font-size:13px;color:#6B7280;font-weight:600;margin-bottom:10px;}
   .code{display:flex;gap:8px;}
-  .code .c{flex:1;height:56px;border:1px solid #D1D5DB;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;}
-  .code .c.on{border-color:#0EA5A4;background:#F0FBFA;}
-  .resend{font-size:13px;color:#6B7280;display:flex;justify-content:space-between;}
-  .matched{font-size:13px;color:#0B7C7B;background:#E6F7F6;border-radius:10px;padding:10px 12px;}
+  .code .c{flex:1;height:58px;border:1.5px solid #E3E6E8;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#1B1F24;}
+  .code .c.filled{border-color:#0EA5A4;background:#F5FCFC;}
+  .code .c.cursor{border-color:#0EA5A4;color:#C7CBCF;}
+  .resend{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#9AA0A6;margin-top:14px;}
+  .resend b{color:#3A424C;font-weight:600;}
   .spacer{flex:1;}
-  .btn{height:52px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}
-  .btn.ghost{background:#F3F4F6;color:#9CA3AF;}
+  .btn{height:54px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;background:#0EA5A4;color:#fff;}
+  .btn.disabled{background:#EBEEEF;color:#B0B5BA;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="appbar"><div class="back"></div></div>
+  <div class="appbar"><div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div></div>
   <div class="body">
-    <div class="step"><div class="s on"></div><div class="s on"></div><div class="s"></div></div>
+    <div class="progress"><i class="on"></i><i class="on"></i><i></i></div>
 
-    <div>
-      <div class="h1">학교 이메일로<br>인증 코드를 보냈어요</div>
-      <div class="p" style="margin-top:8px;">minseo@hankuk.ac.kr 로 6자리 코드를 보냈습니다. 메일함을 확인해 주세요.</div>
+    <div class="head">
+      <h1>인증 코드를<br>입력해 주세요</h1>
+      <p><b>minseo@hankuk.ac.kr</b> 으로 6자리 코드를 보냈어요. 메일함(스팸함도)을 확인해 주세요.</p>
     </div>
 
-    <div class="matched">🎓 한국대학교 학생으로 확인됩니다</div>
+    <div class="matched">
+      <div class="em">한</div>
+      <div class="tx">한국대학교<span>재학생으로 확인됩니다</span></div>
+    </div>
 
     <div>
       <div class="label">인증 코드 6자리</div>
       <div class="code">
-        <div class="c on">4</div><div class="c on">8</div><div class="c on">1</div>
-        <div class="c">·</div><div class="c">·</div><div class="c">·</div>
+        <div class="c filled">4</div>
+        <div class="c filled">8</div>
+        <div class="c filled">1</div>
+        <div class="c cursor">|</div>
+        <div class="c"></div>
+        <div class="c"></div>
       </div>
+      <div class="resend"><span>코드가 오지 않았나요?</span><b>재발송 00:47</b></div>
     </div>
 
-    <div class="resend"><span>코드가 안 왔나요?</span><span>재발송 (00:47)</span></div>
-
     <div class="spacer"></div>
-    <div class="btn ghost">인증하고 계속하기</div>
+    <div class="btn disabled">인증하고 계속하기</div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

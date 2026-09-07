@@ -7,81 +7,96 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
-  .appbar{height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid #EEF0F1;flex:none;}
-  .appbar .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .appbar .t{font-size:17px;font-weight:700;}
-  .list{flex:1;}
-  .chat{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid #F2F3F4;align-items:center;}
-  .pf{width:48px;height:48px;border-radius:999px;background:#E5E7EB;flex:none;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .iconbtn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .appbar .iconbtn svg{width:24px;height:24px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar .t{font-size:18px;font-weight:800;letter-spacing:-.3px;}
+  .list{flex:1;overflow:hidden;}
+  .chat{display:flex;gap:12px;padding:15px 16px;border-bottom:1px solid #F5F6F7;align-items:center;}
+  .av{width:50px;height:50px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;flex:none;font-size:16px;}
   .c{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
   .top{display:flex;align-items:center;gap:6px;}
-  .nm{font-size:14px;font-weight:600;}
-  .lo{font-size:11px;color:#9CA3AF;}
+  .nm{font-size:14.5px;font-weight:700;}
+  .lo{font-size:11px;color:#B0B5BA;}
   .msg{font-size:13px;color:#6B7280;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .msg.unread{color:#1B1F24;font-weight:600;}
+  .thumb{width:44px;height:44px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;color:#B9C0C7;}
+  .thumb svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none;}
   .right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none;}
-  .time{font-size:11px;color:#9CA3AF;}
-  .unread{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#0EA5A4;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
-  .thumb{width:40px;height:40px;border-radius:8px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 6px,#E4E6E8 6px,#E4E6E8 12px);flex:none;}
-  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
-  .tabbar .t2{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
-  .tabbar .t2 .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
+  .time{font-size:11px;color:#B0B5BA;}
+  .badge{min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:#0EA5A4;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .tabbar{height:64px;background:#fff;border-top:1px solid #EEF0F1;display:flex;flex:none;padding-bottom:4px;}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:500;color:#B0B5BB;}
+  .tab svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round;}
 </style>
 </helmet>
 <div class="screen">
-  <div class="appbar"><div class="back"></div><div class="t">채팅</div></div>
+  <div class="appbar">
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div>
+    <div class="t">채팅</div>
+  </div>
   <div class="list">
     <div class="chat">
-      <div class="pf"></div>
+      <div class="av" style="background:#7C6BD6">서</div>
       <div class="c">
-        <div class="top"><span class="nm">공대냉장고요정</span><span class="lo">· 공대 5호관</span></div>
-        <div class="msg">네 오늘 6시에 5호관 앞에서 봬요!</div>
+        <div class="top"><span class="nm">공대냉장고요정</span><span class="lo">공대 5호관</span></div>
+        <div class="msg unread">네 오늘 6시에 5호관 정문 앞에서 봬요!</div>
       </div>
-      <div class="thumb"></div>
-      <div class="right"><span class="time">방금</span><span class="unread">2</span></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#EDF3FF,#DCE7FF)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
+      <div class="right"><span class="time">방금</span><span class="badge">2</span></div>
     </div>
     <div class="chat">
-      <div class="pf"></div>
+      <div class="av" style="background:#3B9AE1">물</div>
       <div class="c">
-        <div class="top"><span class="nm">물리책삽니다</span><span class="lo">· 중앙도서관</span></div>
+        <div class="top"><span class="nm">물리책삽니다</span><span class="lo">중앙도서관</span></div>
         <div class="msg">혹시 필기 있나요? 사진 한 장만 더 부탁드려요</div>
       </div>
-      <div class="thumb"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#FFF3E4,#FFE7C7)"><svg viewBox="0 0 24 24"><path d="M5 4h12a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2Z"/></svg></div>
       <div class="right"><span class="time">10분</span></div>
     </div>
     <div class="chat">
-      <div class="pf"></div>
+      <div class="av" style="background:#E4849B">연</div>
       <div class="c">
         <div class="top"><span class="nm">서연</span></div>
         <div class="msg">거래 완료했어요. 감사합니다 :)</div>
       </div>
-      <div class="thumb"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#EAF7EE,#D8F0DF)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
       <div class="right"><span class="time">어제</span></div>
     </div>
     <div class="chat">
-      <div class="pf"></div>
+      <div class="av" style="background:#5FB49C">준</div>
       <div class="c">
-        <div class="top"><span class="nm">준호</span><span class="lo">· 학생회관</span></div>
-        <div class="msg">패딩 아직 있나요?</div>
+        <div class="top"><span class="nm">준호</span><span class="lo">학생회관</span></div>
+        <div class="msg">패딩 아직 판매하시나요?</div>
       </div>
-      <div class="thumb"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#FFEEF2,#FFDEE7)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
       <div class="right"><span class="time">3일</span></div>
+    </div>
+    <div class="chat">
+      <div class="av" style="background:#C99A4E">동</div>
+      <div class="c">
+        <div class="top"><span class="nm">동아리부원</span><span class="lo">공대 2호관</span></div>
+        <div class="msg">계산기 나눔 혹시 아직 가능할까요?</div>
+      </div>
+      <div class="thumb" style="background:linear-gradient(135deg,#F1EEFF,#E2DCFF)"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 19 5-5 4 3 3-3 4 4"/></svg></div>
+      <div class="right"><span class="time">1주</span></div>
     </div>
   </div>
   <div class="tabbar">
-    <div class="t2"><div class="d"></div>홈</div>
-    <div class="t2"><div class="d"></div>중고책</div>
-    <div class="t2"><div class="d"></div>모임</div>
-    <div class="t2"><div class="d"></div>커뮤니티</div>
-    <div class="t2"><div class="d"></div>마이</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>홈</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M5 4h12a2 2 0 0 1 2 2v15H7a2 2 0 0 1-2-2Z"/><path d="M19 17H7a2 2 0 0 0-2 2"/></svg>중고책</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3.5 19c.7-3 3-4.6 5.5-4.6S13.8 16 14.5 19"/><path d="M15.5 14.5c2 .2 3.7 1.6 4.3 4"/></svg>모임</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>커뮤니티</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.6-6 8-6s6.6 2 8 6"/></svg>마이</div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>

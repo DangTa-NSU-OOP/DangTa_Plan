@@ -7,90 +7,90 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
-  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
-  *{box-sizing:border-box;}
-  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
-  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
-  .appbar{height:52px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #EEF0F1;flex:none;}
-  .appbar .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
-  .appbar .t{font-size:15px;font-weight:700;display:flex;align-items:center;gap:6px;flex:1;}
-  .caret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #111827;}
-  .appbar .ic{width:22px;height:22px;border-radius:6px;background:#E5E7EB;}
-  .grid{flex:1;padding:8px;overflow:hidden;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo',system-ui,sans-serif;background:#fff;color:#111827;-webkit-font-smoothing:antialiased;}
+  .screen{width:390px;min-height:880px;background:#fff;display:flex;flex-direction:column;overflow:hidden;}
+  .appbar{height:56px;display:flex;align-items:center;gap:6px;padding:0 8px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .iconbtn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#26313F;}
+  .appbar .iconbtn svg{width:23px;height:23px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .appbar .t{font-size:15px;font-weight:800;display:flex;align-items:center;gap:5px;flex:1;letter-spacing:-.2px;}
+  .appbar .t svg{width:16px;height:16px;stroke:#111827;stroke-width:2.4;fill:none;}
+  .credit{padding:9px 16px;font-size:12px;color:#9AA0A6;border-bottom:1px solid #F5F6F7;display:flex;justify-content:space-between;}
+  .credit b{color:#0B7C7B;font-weight:700;}
+  .grid{flex:1;overflow:hidden;padding:6px 8px 8px;}
   table{width:100%;border-collapse:collapse;table-layout:fixed;}
-  th,td{border:1px solid #EEF0F1;font-size:10px;color:#9CA3AF;text-align:center;height:40px;padding:0;}
-  th{height:24px;font-weight:600;}
-  td.time{color:#C0C4C8;width:26px;}
-  .cell{position:relative;}
-  .blk{position:absolute;left:1px;right:1px;border-radius:5px;padding:4px;font-size:10px;line-height:1.25;color:#fff;text-align:left;overflow:hidden;}
-  .b1{background:#0EA5A4;}
-  .b2{background:#F59E0B;}
-  .b3{background:#6366F1;}
-  .b4{background:#EC4899;}
-  .b5{background:#10B981;}
-  .foot{border-top:1px solid #E5E7EB;padding:12px 16px;display:flex;gap:10px;flex:none;}
-  .foot .btn{flex:1;height:44px;border-radius:12px;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#6B7280;}
+  th{height:22px;font-size:10px;font-weight:600;color:#9AA0A6;}
+  td{border:1px solid #F1F2F3;height:38px;padding:0;vertical-align:top;position:relative;}
+  td.time{width:22px;border:none;font-size:9px;color:#C0C4C8;text-align:right;padding-right:4px;vertical-align:top;padding-top:2px;}
+  th.time{width:22px;}
+  .blk{position:absolute;left:1px;right:1px;top:1px;border-radius:6px;padding:5px;color:#fff;font-size:9.5px;line-height:1.3;font-weight:600;overflow:hidden;}
+  .blk .rm{font-weight:400;opacity:.85;font-size:8.5px;}
+  .foot{border-top:1px solid #EEF0F1;padding:12px 16px 16px;display:flex;gap:10px;flex:none;}
+  .foot .btn{flex:1;height:46px;border-radius:12px;border:1.5px solid #E3E6E8;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;font-weight:700;color:#6B7280;}
+  .foot .btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   .foot .btn.p{background:#0EA5A4;border-color:#0EA5A4;color:#fff;}
-  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
-  .tabbar .tt{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
-  .tabbar .tt.on{color:#0EA5A4;font-weight:600;}
-  .tabbar .tt .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
-  .tabbar .tt.on .d{background:#0EA5A4;}
+  .tabbar{height:64px;background:#fff;border-top:1px solid #EEF0F1;display:flex;flex:none;padding-bottom:4px;}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:500;color:#B0B5BB;}
+  .tab svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .tab--on{color:#0EA5A4;font-weight:700;}
 </style>
 </helmet>
 <div class="screen">
   <div class="appbar">
-    <div class="back"></div>
-    <div class="t">2026년 2학기 · 1안 <span class="caret"></span></div>
-    <div class="ic"></div><div class="ic"></div>
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/></svg></div>
+    <div class="t">2026년 2학기 · 1안 <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+    <div class="iconbtn"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><path d="m8.2 10.8 6.6-3.6M8.2 13.2l6.6 3.6"/></svg></div>
   </div>
+  <div class="credit"><span>담은 강의 <b>5</b>개</span><span>총 <b>15</b>학점 · 공강 목요일</span></div>
   <div class="grid">
     <table>
-      <tr><th></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr>
+      <tr><th class="time"></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr>
       <tr><td class="time">9</td>
-        <td class="cell"><div class="blk b1" style="top:1px;height:78px;">일반물리학1<br>공대303</div></td>
+        <td><div class="blk" style="height:74px;background:#0EA5A4">일반물리학1<div class="rm">공대 303</div></div></td>
         <td></td>
-        <td class="cell"><div class="blk b1" style="top:1px;height:78px;">일반물리학1<br>공대303</div></td>
+        <td><div class="blk" style="height:74px;background:#0EA5A4">일반물리학1<div class="rm">공대 303</div></div></td>
         <td></td><td></td></tr>
       <tr><td class="time">10</td><td></td><td></td><td></td><td></td><td></td></tr>
       <tr><td class="time">11</td>
         <td></td>
-        <td class="cell"><div class="blk b2" style="top:1px;height:118px;">자료구조<br>IT관 201</div></td>
+        <td><div class="blk" style="height:112px;background:#F59E0B">자료구조<div class="rm">IT관 201</div></div></td>
         <td></td>
-        <td class="cell"><div class="blk b2" style="top:1px;height:118px;">자료구조<br>IT관 201</div></td>
+        <td><div class="blk" style="height:112px;background:#F59E0B">자료구조<div class="rm">IT관 201</div></div></td>
         <td></td></tr>
       <tr><td class="time">12</td><td></td><td></td><td></td><td></td><td></td></tr>
       <tr><td class="time">13</td><td></td><td></td>
-        <td class="cell"><div class="blk b3" style="top:1px;height:78px;">미적분학2<br>자연대 5</div></td>
+        <td><div class="blk" style="height:74px;background:#6366F1">미적분학2<div class="rm">자연대 5</div></div></td>
         <td></td>
-        <td class="cell"><div class="blk b3" style="top:1px;height:78px;">미적분학2<br>자연대 5</div></td></tr>
+        <td><div class="blk" style="height:74px;background:#6366F1">미적분학2<div class="rm">자연대 5</div></div></td></tr>
       <tr><td class="time">14</td><td></td><td></td><td></td><td></td><td></td></tr>
       <tr><td class="time">15</td>
-        <td class="cell"><div class="blk b4" style="top:1px;height:78px;">대학영어<br>인문 210</div></td>
+        <td><div class="blk" style="height:74px;background:#EC4899">대학영어<div class="rm">인문 210</div></div></td>
         <td></td><td></td>
-        <td class="cell"><div class="blk b4" style="top:1px;height:78px;">대학영어<br>인문 210</div></td>
-        <td></td></tr>
+        <td></td>
+        <td><div class="blk" style="height:74px;background:#EC4899">대학영어<div class="rm">인문 210</div></div></td></tr>
       <tr><td class="time">16</td><td></td>
-        <td class="cell"><div class="blk b5" style="top:1px;height:78px;">공학설계입문<br>공대 대강당</div></td>
+        <td><div class="blk" style="height:74px;background:#10B981">공학설계입문<div class="rm">공대 대강당</div></div></td>
         <td></td><td></td><td></td></tr>
       <tr><td class="time">17</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="time">18</td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
   </div>
   <div class="foot">
-    <div class="btn">공유</div>
-    <div class="btn p">＋ 강의 추가</div>
+    <div class="btn"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><path d="m8.2 10.8 6.6-3.6M8.2 13.2l6.6 3.6"/></svg>공유</div>
+    <div class="btn p"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>강의 추가</div>
   </div>
   <div class="tabbar">
-    <div class="tt"><div class="d"></div>홈</div>
-    <div class="tt"><div class="d"></div>중고책</div>
-    <div class="tt"><div class="d"></div>모임</div>
-    <div class="tt"><div class="d"></div>커뮤니티</div>
-    <div class="tt on"><div class="d"></div>마이</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>홈</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M5 4h12a2 2 0 0 1 2 2v15H7a2 2 0 0 1-2-2Z"/><path d="M19 17H7a2 2 0 0 0-2 2"/></svg>중고책</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3.5 19c.7-3 3-4.6 5.5-4.6S13.8 16 14.5 19"/><path d="M15.5 14.5c2 .2 3.7 1.6 4.3 4"/></svg>모임</div>
+    <div class="tab"><svg viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4.5A8 8 0 1 1 21 11.5Z"/></svg>커뮤니티</div>
+    <div class="tab tab--on"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.4-4 4.6-6 8-6s6.6 2 8 6"/></svg>마이</div>
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":920}}'>
 class Component extends DCLogic {}
 </script>
 </body>
