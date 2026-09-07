@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#F5F6F7;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;display:flex;flex-direction:column;}
+  .appbar{height:52px;background:#fff;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex:none;}
+  .appbar .t{font-weight:700;font-size:16px;}
+  .ic{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .body{flex:1;padding:12px 16px;display:flex;flex-direction:column;gap:12px;}
+  .card{background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:16px;}
+  .prof{display:flex;align-items:center;gap:14px;}
+  .prof .pf{width:56px;height:56px;border-radius:999px;background:#E5E7EB;flex:none;}
+  .prof .nm{font-size:16px;font-weight:700;}
+  .prof .sub{font-size:12px;color:#9CA3AF;margin-top:2px;}
+  .prof .edit{margin-left:auto;font-size:12px;color:#6B7280;border:1px solid #E5E7EB;border-radius:8px;padding:6px 10px;}
+  .temp{margin-top:14px;}
+  .temp .row{display:flex;justify-content:space-between;align-items:baseline;}
+  .temp .lab{font-size:12px;color:#6B7280;}
+  .temp .val{font-size:20px;font-weight:800;color:#F59E0B;}
+  .temp .bar{height:8px;border-radius:999px;background:#E5E7EB;margin-top:8px;overflow:hidden;}
+  .temp .bar i{display:block;width:62%;height:100%;background:linear-gradient(90deg,#22C55E,#0EA5A4,#F59E0B);}
+  .temp .rebuy{font-size:12px;color:#9CA3AF;margin-top:8px;}
+  .quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+  .quick .q{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:12px 4px;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:#6B7280;}
+  .quick .q .qi{width:22px;height:22px;border-radius:6px;background:#E5E7EB;}
+  .menu{background:#fff;border:1px solid #E5E7EB;border-radius:14px;overflow:hidden;}
+  .menu .mi{padding:14px 16px;font-size:14px;border-bottom:1px solid #F2F3F4;display:flex;justify-content:space-between;align-items:center;}
+  .menu .mi:last-child{border-bottom:none;}
+  .menu .mi .arw{color:#C0C4C8;}
+  .reviews .rv{border-top:1px solid #F2F3F4;padding-top:10px;margin-top:10px;font-size:13px;color:#374151;}
+  .reviews .rv .tg{font-size:11px;color:#0B7C7B;background:#E6F7F6;border-radius:5px;padding:1px 6px;margin-right:4px;}
+  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
+  .tabbar .tm{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
+  .tabbar .tm.on{color:#0EA5A4;font-weight:600;}
+  .tabbar .tm .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
+  .tabbar .tm.on .d{background:#0EA5A4;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="t">마이</div><div class="ic"></div></div>
+  <div class="body">
+    <div class="card">
+      <div class="prof">
+        <div class="pf"></div>
+        <div>
+          <div class="nm">공대냉장고요정</div>
+          <div class="sub">한국대 · 전자공학과 · 24학번</div>
+        </div>
+        <div class="edit">프로필 수정</div>
+      </div>
+      <div class="temp">
+        <div class="row"><span class="lab">매너온도</span><span class="val">42.3℃</span></div>
+        <div class="bar"><i></i></div>
+        <div class="rebuy">재거래희망률 89% · 받은 후기 17개</div>
+      </div>
+    </div>
+
+    <div class="quick">
+      <div class="q"><div class="qi"></div>판매내역</div>
+      <div class="q"><div class="qi"></div>구매내역</div>
+      <div class="q"><div class="qi"></div>찜한상품</div>
+      <div class="q"><div class="qi"></div>스크랩</div>
+    </div>
+
+    <div class="menu">
+      <div class="mi">내 시간표 <span class="arw">›</span></div>
+      <div class="mi">내 모임 <span class="arw">›</span></div>
+      <div class="mi">내가 쓴 글 · 댓글 <span class="arw">›</span></div>
+      <div class="mi">알림 설정 <span class="arw">›</span></div>
+      <div class="mi">차단 목록 <span class="arw">›</span></div>
+      <div class="mi">고객센터 · 신고 내역 <span class="arw">›</span></div>
+    </div>
+
+    <div class="card reviews">
+      <div style="font-size:13px;font-weight:700;">받은 매너 후기</div>
+      <div class="rv"><span class="tg">시간약속 잘 지켜요</span><span class="tg">친절해요</span><br>"약속 시간에 딱 맞춰 오셨고 물건도 설명 그대로였어요!"</div>
+      <div class="rv"><span class="tg">응답이 빨라요</span><br>"채팅 답장이 엄청 빨라서 편하게 거래했습니다."</div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tm"><div class="d"></div>홈</div>
+    <div class="tm"><div class="d"></div>중고책</div>
+    <div class="tm"><div class="d"></div>모임</div>
+    <div class="tm"><div class="d"></div>커뮤니티</div>
+    <div class="tm on"><div class="d"></div>마이</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
+  .appbar{height:52px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .appbar .t{font-size:14px;color:#6B7280;flex:1;}
+  .appbar .more{width:22px;height:22px;border-radius:6px;background:#E5E7EB;}
+  .body{flex:1;overflow:hidden;}
+  .author{display:flex;align-items:center;gap:10px;padding:14px 16px;}
+  .author .pf{width:36px;height:36px;border-radius:999px;background:#E5E7EB;}
+  .author .nm{font-size:13px;font-weight:600;}
+  .author .ti{font-size:11px;color:#9CA3AF;}
+  .content{padding:0 16px 14px;}
+  .content h1{font-size:18px;font-weight:700;margin:6px 0 10px;line-height:1.35;}
+  .content p{font-size:15px;line-height:1.7;color:#1F2937;margin:0 0 12px;}
+  .react{display:flex;gap:10px;padding:12px 16px;border-top:1px solid #EEF0F1;border-bottom:8px solid #F5F6F7;}
+  .react .b{flex:1;height:38px;border:1px solid #E5E7EB;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#6B7280;}
+  .react .b.on{border-color:#0EA5A4;color:#0B7C7B;background:#F0FBFA;font-weight:600;}
+  .clabel{padding:12px 16px 4px;font-size:13px;font-weight:700;color:#374151;}
+  .cm{padding:12px 16px;border-bottom:1px solid #F4F5F6;display:flex;flex-direction:column;gap:4px;}
+  .cm.reply{padding-left:40px;background:#FAFBFB;}
+  .cm .ch{display:flex;align-items:center;gap:6px;}
+  .cm .who{font-size:12px;font-weight:600;}
+  .cm .who.op{color:#0B7C7B;}
+  .cm .tx{font-size:14px;line-height:1.5;}
+  .cm .cf{font-size:11px;color:#9CA3AF;display:flex;gap:12px;}
+  .composer{border-top:1px solid #E5E7EB;display:flex;align-items:center;gap:10px;padding:10px 14px;flex:none;}
+  .composer .anon{font-size:11px;color:#6B7280;display:flex;align-items:center;gap:4px;flex:none;}
+  .composer .chkbox{width:16px;height:16px;border-radius:4px;background:#0EA5A4;}
+  .composer .box{flex:1;height:38px;border-radius:999px;background:#F3F4F6;display:flex;align-items:center;padding:0 14px;font-size:13px;color:#9CA3AF;}
+  .composer .send{width:34px;height:34px;border-radius:999px;background:#0EA5A4;flex:none;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="back"></div><div class="t">자유게시판</div><div class="more"></div></div>
+  <div class="body">
+    <div class="author">
+      <div class="pf"></div>
+      <div><div class="nm">익명 (글쓴이)</div><div class="ti">12분 전 · 조회 210</div></div>
+    </div>
+    <div class="content">
+      <h1>중간고사 언제부터 공부 시작함?</h1>
+      <p>전공 3개인데 아직 하나도 안 봤어요. 큰일났다 싶어서 글 씁니다. 다들 보통 몇 주 전부터 시작하시나요? 벼락치기 가능한 과목이랑 아닌 과목도 궁금해요.</p>
+    </div>
+    <div class="react">
+      <div class="b on">♡ 좋아요 42</div>
+      <div class="b">🔖 스크랩 3</div>
+      <div class="b">↗ 공유</div>
+    </div>
+
+    <div class="clabel">댓글 18</div>
+    <div class="cm">
+      <div class="ch"><span class="who">익명1</span></div>
+      <div class="tx">저는 2주 전부터요. 전공은 1주로는 부족하더라고요</div>
+      <div class="cf"><span>10분 전</span><span>♡ 5</span><span>답글</span></div>
+    </div>
+    <div class="cm reply">
+      <div class="ch"><span class="who op">익명 (글쓴이)</span></div>
+      <div class="tx">헉 2주... 지금 시작해야겠네요 감사합니다</div>
+      <div class="cf"><span>8분 전</span><span>♡ 1</span></div>
+    </div>
+    <div class="cm">
+      <div class="ch"><span class="who">익명2</span></div>
+      <div class="tx">과목마다 다르죠. 암기 과목은 3일 전 몰아치기 가능</div>
+      <div class="cf"><span>6분 전</span><span>♡ 8</span><span>답글</span></div>
+    </div>
+  </div>
+  <div class="composer">
+    <div class="anon"><div class="chkbox"></div>익명</div>
+    <div class="box">댓글을 입력하세요</div>
+    <div class="send"></div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

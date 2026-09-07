@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
+  .appbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .x{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .appbar .t{font-size:16px;font-weight:700;}
+  .body{flex:1;padding:16px;display:flex;flex-direction:column;gap:18px;}
+  .isbn{height:44px;border:1px solid #0EA5A4;border-radius:12px;display:flex;align-items:center;padding:0 12px;gap:8px;font-size:14px;color:#0B7C7B;background:#F0FBFA;}
+  .isbn .mag{width:18px;height:18px;border-radius:5px;background:#B6E7E4;}
+  .found{display:flex;gap:12px;padding:12px;border:1px solid #E5E7EB;border-radius:12px;background:#FAFBFB;}
+  .cover{width:60px;height:84px;border-radius:6px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 7px,#E4E6E8 7px,#E4E6E8 14px);border:1px solid #E0E2E5;flex:none;}
+  .fmeta{flex:1;display:flex;flex-direction:column;gap:3px;}
+  .fttl{font-size:14px;font-weight:700;}
+  .fsub{font-size:12px;color:#9CA3AF;}
+  .flist{font-size:12px;color:#6B7280;margin-top:4px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .label{font-size:13px;color:#6B7280;font-weight:600;}
+  .seg{display:flex;gap:8px;}
+  .seg .o{flex:1;height:40px;border:1px solid #E5E7EB;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#6B7280;}
+  .seg .o.on{border-color:#0EA5A4;background:#E6F7F6;color:#0B7C7B;font-weight:600;}
+  .line{border-bottom:1px solid #E5E7EB;padding-bottom:10px;font-size:15px;}
+  .line.ph{color:#9CA3AF;}
+  .tagrow{display:flex;gap:6px;flex-wrap:wrap;}
+  .tg{font-size:12px;color:#0B7C7B;background:#E6F7F6;border-radius:8px;padding:5px 9px;}
+  .tg.add{background:#F3F4F6;color:#9CA3AF;}
+  .photos{display:flex;gap:8px;}
+  .add{width:72px;height:72px;border-radius:10px;border:1px dashed #C7CBCF;display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:11px;flex:none;}
+  .btn{height:52px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin:8px 16px 20px;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="x"></div><div class="t">중고책 팔기</div><div style="width:24px;"></div></div>
+  <div class="body">
+    <div class="isbn"><div class="mag"></div>ISBN / 제목으로 책 검색</div>
+
+    <div class="found">
+      <div class="cover"></div>
+      <div class="fmeta">
+        <div class="fttl">일반물리학 (제10판)</div>
+        <div class="fsub">Halliday, Resnick · 범한서적</div>
+        <div class="flist">정가 38,000원 · ISBN 9791162241974</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label">책 상태</div>
+      <div class="seg"><div class="o on">상 (깨끗)</div><div class="o">중</div><div class="o">하</div></div>
+      <div class="seg"><div class="o on">필기 없음</div><div class="o">필기 있음</div></div>
+    </div>
+
+    <div class="field">
+      <div class="label">판매가</div>
+      <div class="line">15,000원 <span style="color:#DC2626;font-size:13px;font-weight:700;">-61%</span></div>
+    </div>
+
+    <div class="field">
+      <div class="label">강의 태그 (선택)</div>
+      <div class="tagrow"><span class="tg"># 일반물리학1</span><span class="tg add">＋ 강의 추가</span></div>
+    </div>
+
+    <div class="field">
+      <div class="label">사진</div>
+      <div class="photos"><div class="add">＋</div></div>
+    </div>
+
+    <div class="field">
+      <div class="label">거래 장소</div>
+      <div class="line">📍 공대 3호관</div>
+    </div>
+  </div>
+  <div class="btn">등록하기</div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

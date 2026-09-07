@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
+  .appbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .x{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .appbar .t{font-size:16px;font-weight:700;}
+  .appbar .s{font-size:15px;color:#9CA3AF;font-weight:600;}
+  .body{flex:1;padding:16px;display:flex;flex-direction:column;gap:18px;}
+  .photos{display:flex;gap:8px;}
+  .add{width:76px;height:76px;border-radius:10px;border:1px dashed #C7CBCF;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#9CA3AF;font-size:11px;flex:none;}
+  .shot{width:76px;height:76px;border-radius:10px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 8px,#E4E6E8 8px,#E4E6E8 16px);flex:none;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .label{font-size:13px;color:#6B7280;font-weight:600;}
+  .line{border-bottom:1px solid #E5E7EB;padding-bottom:10px;font-size:15px;}
+  .line.ph{color:#9CA3AF;}
+  .seg{display:flex;gap:8px;}
+  .seg .o{flex:1;height:40px;border:1px solid #E5E7EB;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#6B7280;}
+  .seg .o.on{border-color:#0EA5A4;background:#E6F7F6;color:#0B7C7B;font-weight:600;}
+  .area{min-height:90px;border-bottom:1px solid #E5E7EB;font-size:14px;color:#9CA3AF;line-height:1.5;}
+  .spacer{flex:1;}
+  .btn{height:52px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin:12px 16px 20px;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="x"></div><div class="t">중고거래 글쓰기</div><div class="s">임시저장</div></div>
+  <div class="body">
+    <div class="photos">
+      <div class="add"><div style="font-size:18px;">＋</div>1/10</div>
+      <div class="shot"></div>
+      <div class="shot"></div>
+    </div>
+
+    <div class="field">
+      <div class="label">제목</div>
+      <div class="line ph">글 제목을 입력하세요</div>
+    </div>
+
+    <div class="field">
+      <div class="label">카테고리</div>
+      <div class="line">생활가전</div>
+    </div>
+
+    <div class="field">
+      <div class="label">거래 방식</div>
+      <div class="seg"><div class="o on">직거래</div><div class="o">택배</div><div class="o">둘 다</div></div>
+    </div>
+
+    <div class="field">
+      <div class="label">가격</div>
+      <div class="line">60,000원</div>
+      <div class="seg"><div class="o">나눔(무료)</div><div class="o on">가격 제안 받기</div></div>
+    </div>
+
+    <div class="field">
+      <div class="label">캠퍼스 거래 장소</div>
+      <div class="line">📍 공대 5호관</div>
+    </div>
+
+    <div class="field">
+      <div class="label">자세한 설명</div>
+      <div class="area">상품 상태, 사용 기간, 거래 희망 시간 등을 적어주세요.</div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="btn">작성 완료</div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#F5F6F7;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#F5F6F7;display:flex;flex-direction:column;position:relative;}
+  .appbar{height:52px;background:#fff;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex:none;}
+  .appbar .title{font-weight:700;font-size:16px;display:flex;align-items:center;gap:6px;}
+  .appbar .caret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #111827;}
+  .icons{display:flex;gap:14px;}
+  .ic{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .ic.badge{position:relative;}
+  .ic.badge::after{content:"";position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:999px;background:#0EA5A4;}
+  .chips{display:flex;gap:8px;padding:12px 16px;overflow:hidden;background:#fff;border-bottom:1px solid #E5E7EB;}
+  .chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:999px;border:1px solid #E5E7EB;background:#fff;font-size:13px;color:#6B7280;white-space:nowrap;flex:none;}
+  .chip.on{background:#E6F7F6;border-color:#0EA5A4;color:#0B7C7B;font-weight:600;}
+  .feed{flex:1;padding:4px 0;}
+  .item{display:flex;gap:12px;padding:14px 16px;background:#fff;border-bottom:1px solid #EEF0F1;}
+  .thumb{width:96px;height:96px;border-radius:10px;flex:none;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 8px,#E4E6E8 8px,#E4E6E8 16px);border:1px solid #E0E2E5;display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:11px;}
+  .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;}
+  .ttl{font-size:15px;line-height:1.35;}
+  .sub{font-size:12px;color:#9CA3AF;}
+  .price{font-size:16px;font-weight:700;margin-top:2px;}
+  .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 6px;border-radius:6px;background:#FEF3E2;color:#B45309;}
+  .stats{display:flex;gap:10px;justify-content:flex-end;font-size:12px;color:#9CA3AF;margin-top:4px;}
+  .fab{position:absolute;right:16px;bottom:76px;width:52px;height:52px;border-radius:999px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(14,165,164,.4);}
+  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
+  .tabbar .t{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
+  .tabbar .t.on{color:#0EA5A4;font-weight:600;}
+  .tabbar .t .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
+  .tabbar .t.on .d{background:#0EA5A4;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar">
+    <div class="title">한국대 · 공대 <span class="caret"></span></div>
+    <div class="icons"><div class="ic"></div><div class="ic badge"></div><div class="ic badge"></div></div>
+  </div>
+
+  <div class="chips">
+    <span class="chip on">전체</span>
+    <span class="chip">디지털기기</span>
+    <span class="chip">생활가전</span>
+    <span class="chip">가구</span>
+    <span class="chip">의류</span>
+  </div>
+
+  <div class="feed">
+    <div class="item">
+      <div class="thumb">사진</div>
+      <div class="meta">
+        <div class="ttl">자취 미니 냉장고 (1년 사용, 상태 좋음)</div>
+        <div class="sub">공대 5호관 · 3분 전</div>
+        <div class="price">60,000원</div>
+        <div class="stats">♡ 3 · 💬 2</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="thumb">사진</div>
+      <div class="meta">
+        <div class="ttl">아이패드 9세대 64GB + 애플펜슬 <span class="tag">예약중</span></div>
+        <div class="sub">중앙도서관 · 12분 전</div>
+        <div class="price">280,000원</div>
+        <div class="stats">♡ 11 · 💬 5</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="thumb">사진</div>
+      <div class="meta">
+        <div class="ttl">책상 스탠드 (LED, 밝기조절)</div>
+        <div class="sub">2기숙사 · 34분 전</div>
+        <div class="price">나눔</div>
+        <div class="stats">♡ 8 · 💬 4</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="thumb">사진</div>
+      <div class="meta">
+        <div class="ttl">전공 필수 계산기 공학용 (fx-570)</div>
+        <div class="sub">공대 3호관 · 1시간 전</div>
+        <div class="price">15,000원</div>
+        <div class="stats">♡ 2 · 💬 1</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="thumb">사진</div>
+      <div class="meta">
+        <div class="ttl">겨울 패딩 (블랙, L) 거의 새것</div>
+        <div class="sub">학생회관 · 2시간 전</div>
+        <div class="price">45,000원</div>
+        <div class="stats">♡ 6 · 💬 0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fab">+</div>
+
+  <div class="tabbar">
+    <div class="t on"><div class="d"></div>홈</div>
+    <div class="t"><div class="d"></div>중고책</div>
+    <div class="t"><div class="d"></div>모임</div>
+    <div class="t"><div class="d"></div>커뮤니티</div>
+    <div class="t"><div class="d"></div>마이</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

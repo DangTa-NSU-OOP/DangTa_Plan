@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
+  .appbar{height:52px;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .appbar .t{font-size:17px;font-weight:700;}
+  .list{flex:1;}
+  .chat{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid #F2F3F4;align-items:center;}
+  .pf{width:48px;height:48px;border-radius:999px;background:#E5E7EB;flex:none;}
+  .c{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
+  .top{display:flex;align-items:center;gap:6px;}
+  .nm{font-size:14px;font-weight:600;}
+  .lo{font-size:11px;color:#9CA3AF;}
+  .msg{font-size:13px;color:#6B7280;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex:none;}
+  .time{font-size:11px;color:#9CA3AF;}
+  .unread{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#0EA5A4;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .thumb{width:40px;height:40px;border-radius:8px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 6px,#E4E6E8 6px,#E4E6E8 12px);flex:none;}
+  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
+  .tabbar .t2{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
+  .tabbar .t2 .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="back"></div><div class="t">채팅</div></div>
+  <div class="list">
+    <div class="chat">
+      <div class="pf"></div>
+      <div class="c">
+        <div class="top"><span class="nm">공대냉장고요정</span><span class="lo">· 공대 5호관</span></div>
+        <div class="msg">네 오늘 6시에 5호관 앞에서 봬요!</div>
+      </div>
+      <div class="thumb"></div>
+      <div class="right"><span class="time">방금</span><span class="unread">2</span></div>
+    </div>
+    <div class="chat">
+      <div class="pf"></div>
+      <div class="c">
+        <div class="top"><span class="nm">물리책삽니다</span><span class="lo">· 중앙도서관</span></div>
+        <div class="msg">혹시 필기 있나요? 사진 한 장만 더 부탁드려요</div>
+      </div>
+      <div class="thumb"></div>
+      <div class="right"><span class="time">10분</span></div>
+    </div>
+    <div class="chat">
+      <div class="pf"></div>
+      <div class="c">
+        <div class="top"><span class="nm">서연</span></div>
+        <div class="msg">거래 완료했어요. 감사합니다 :)</div>
+      </div>
+      <div class="thumb"></div>
+      <div class="right"><span class="time">어제</span></div>
+    </div>
+    <div class="chat">
+      <div class="pf"></div>
+      <div class="c">
+        <div class="top"><span class="nm">준호</span><span class="lo">· 학생회관</span></div>
+        <div class="msg">패딩 아직 있나요?</div>
+      </div>
+      <div class="thumb"></div>
+      <div class="right"><span class="time">3일</span></div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="t2"><div class="d"></div>홈</div>
+    <div class="t2"><div class="d"></div>중고책</div>
+    <div class="t2"><div class="d"></div>모임</div>
+    <div class="t2"><div class="d"></div>커뮤니티</div>
+    <div class="t2"><div class="d"></div>마이</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

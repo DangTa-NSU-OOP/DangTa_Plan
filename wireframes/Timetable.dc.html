@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
+  .appbar{height:52px;display:flex;align-items:center;gap:10px;padding:0 14px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .back{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .appbar .t{font-size:15px;font-weight:700;display:flex;align-items:center;gap:6px;flex:1;}
+  .caret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #111827;}
+  .appbar .ic{width:22px;height:22px;border-radius:6px;background:#E5E7EB;}
+  .grid{flex:1;padding:8px;overflow:hidden;}
+  table{width:100%;border-collapse:collapse;table-layout:fixed;}
+  th,td{border:1px solid #EEF0F1;font-size:10px;color:#9CA3AF;text-align:center;height:40px;padding:0;}
+  th{height:24px;font-weight:600;}
+  td.time{color:#C0C4C8;width:26px;}
+  .cell{position:relative;}
+  .blk{position:absolute;left:1px;right:1px;border-radius:5px;padding:4px;font-size:10px;line-height:1.25;color:#fff;text-align:left;overflow:hidden;}
+  .b1{background:#0EA5A4;}
+  .b2{background:#F59E0B;}
+  .b3{background:#6366F1;}
+  .b4{background:#EC4899;}
+  .b5{background:#10B981;}
+  .foot{border-top:1px solid #E5E7EB;padding:12px 16px;display:flex;gap:10px;flex:none;}
+  .foot .btn{flex:1;height:44px;border-radius:12px;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#6B7280;}
+  .foot .btn.p{background:#0EA5A4;border-color:#0EA5A4;color:#fff;}
+  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
+  .tabbar .tt{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
+  .tabbar .tt.on{color:#0EA5A4;font-weight:600;}
+  .tabbar .tt .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
+  .tabbar .tt.on .d{background:#0EA5A4;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar">
+    <div class="back"></div>
+    <div class="t">2026년 2학기 · 1안 <span class="caret"></span></div>
+    <div class="ic"></div><div class="ic"></div>
+  </div>
+  <div class="grid">
+    <table>
+      <tr><th></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr>
+      <tr><td class="time">9</td>
+        <td class="cell"><div class="blk b1" style="top:1px;height:78px;">일반물리학1<br>공대303</div></td>
+        <td></td>
+        <td class="cell"><div class="blk b1" style="top:1px;height:78px;">일반물리학1<br>공대303</div></td>
+        <td></td><td></td></tr>
+      <tr><td class="time">10</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="time">11</td>
+        <td></td>
+        <td class="cell"><div class="blk b2" style="top:1px;height:118px;">자료구조<br>IT관 201</div></td>
+        <td></td>
+        <td class="cell"><div class="blk b2" style="top:1px;height:118px;">자료구조<br>IT관 201</div></td>
+        <td></td></tr>
+      <tr><td class="time">12</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="time">13</td><td></td><td></td>
+        <td class="cell"><div class="blk b3" style="top:1px;height:78px;">미적분학2<br>자연대 5</div></td>
+        <td></td>
+        <td class="cell"><div class="blk b3" style="top:1px;height:78px;">미적분학2<br>자연대 5</div></td></tr>
+      <tr><td class="time">14</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="time">15</td>
+        <td class="cell"><div class="blk b4" style="top:1px;height:78px;">대학영어<br>인문 210</div></td>
+        <td></td><td></td>
+        <td class="cell"><div class="blk b4" style="top:1px;height:78px;">대학영어<br>인문 210</div></td>
+        <td></td></tr>
+      <tr><td class="time">16</td><td></td>
+        <td class="cell"><div class="blk b5" style="top:1px;height:78px;">공학설계입문<br>공대 대강당</div></td>
+        <td></td><td></td><td></td></tr>
+      <tr><td class="time">17</td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+  </div>
+  <div class="foot">
+    <div class="btn">공유</div>
+    <div class="btn p">＋ 강의 추가</div>
+  </div>
+  <div class="tabbar">
+    <div class="tt"><div class="d"></div>홈</div>
+    <div class="tt"><div class="d"></div>중고책</div>
+    <div class="tt"><div class="d"></div>모임</div>
+    <div class="tt"><div class="d"></div>커뮤니티</div>
+    <div class="tt on"><div class="d"></div>마이</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

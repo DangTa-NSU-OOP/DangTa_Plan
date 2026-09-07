@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;position:relative;}
+  .hero{height:300px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 10px,#E4E6E8 10px,#E4E6E8 20px);display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:13px;position:relative;flex:none;}
+  .hero .back{position:absolute;top:14px;left:14px;width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,.9);}
+  .hero .dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;}
+  .hero .dots i{width:6px;height:6px;border-radius:999px;background:#fff;opacity:.5;}
+  .hero .dots i.on{opacity:1;}
+  .body{flex:1;overflow:hidden;}
+  .seller{display:flex;align-items:center;gap:12px;padding:16px;border-bottom:1px solid #EEF0F1;}
+  .seller .pf{width:44px;height:44px;border-radius:999px;background:#E5E7EB;}
+  .seller .info{flex:1;}
+  .seller .nm{font-size:14px;font-weight:600;}
+  .seller .lo{font-size:12px;color:#9CA3AF;}
+  .temp{text-align:right;}
+  .temp .v{font-size:15px;font-weight:800;color:#F59E0B;}
+  .temp .g{width:64px;height:6px;border-radius:999px;background:#E5E7EB;margin-top:4px;overflow:hidden;}
+  .temp .g i{display:block;width:62%;height:100%;background:#F59E0B;}
+  .content{padding:16px;display:flex;flex-direction:column;gap:10px;}
+  .ttl{font-size:19px;font-weight:700;line-height:1.35;}
+  .cat{font-size:12px;color:#9CA3AF;}
+  .desc{font-size:14px;line-height:1.6;color:#374151;}
+  .placemeta{display:flex;gap:8px;flex-wrap:wrap;}
+  .pill{font-size:12px;color:#0B7C7B;background:#E6F7F6;border-radius:999px;padding:5px 10px;}
+  .statline{font-size:12px;color:#9CA3AF;padding-top:6px;border-top:1px solid #EEF0F1;}
+  .more{padding:16px;border-top:8px solid #F5F6F7;}
+  .more h4{margin:0 0 12px;font-size:14px;}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .grid .g{aspect-ratio:1;border-radius:8px;background:#E5E7EB;}
+  .cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #E5E7EB;display:flex;align-items:center;gap:12px;padding:12px 16px;flex:none;}
+  .cta .heart{width:28px;height:28px;border-radius:6px;background:#E5E7EB;flex:none;}
+  .cta .price{flex:1;font-size:17px;font-weight:800;}
+  .cta .btn{height:46px;padding:0 22px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;font-size:15px;font-weight:700;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="hero">상품 사진 1 / 4
+    <div class="back"></div>
+    <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="body">
+    <div class="seller">
+      <div class="pf"></div>
+      <div class="info"><div class="nm">공대냉장고요정</div><div class="lo">공대 5호관</div></div>
+      <div class="temp"><div class="v">42.3℃</div><div class="g"><i></i></div></div>
+    </div>
+    <div class="content">
+      <div class="cat">생활가전</div>
+      <div class="ttl">자취 미니 냉장고 (1년 사용, 상태 좋음)</div>
+      <div class="desc">기숙사 나가면서 팝니다. 1년 사용했고 소음 없어요. 직거래는 공대 5호관 앞에서 가능합니다. 청소 다 해뒀어요.</div>
+      <div class="placemeta">
+        <span class="pill">📍 공대 5호관</span>
+        <span class="pill">직거래</span>
+      </div>
+      <div class="statline">조회 128 · 찜 3 · 채팅 2 · 3분 전</div>
+    </div>
+    <div class="more">
+      <h4>공대냉장고요정님의 다른 물건</h4>
+      <div class="grid"><div class="g"></div><div class="g"></div><div class="g"></div></div>
+    </div>
+  </div>
+  <div class="cta">
+    <div class="heart"></div>
+    <div class="price">60,000원</div>
+    <div class="btn">채팅하기</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

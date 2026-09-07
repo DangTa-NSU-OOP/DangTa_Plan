@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#F5F6F7;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;display:flex;flex-direction:column;position:relative;}
+  .appbar{height:52px;background:#fff;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between;padding:0 16px;flex:none;}
+  .appbar .t{font-weight:700;font-size:16px;}
+  .icons{display:flex;gap:14px;}
+  .ic{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .cats{display:flex;gap:8px;padding:12px 16px;overflow:hidden;background:#fff;border-bottom:1px solid #E5E7EB;}
+  .chip{height:30px;padding:0 12px;border-radius:999px;border:1px solid #E5E7EB;background:#fff;font-size:13px;color:#6B7280;display:inline-flex;align-items:center;white-space:nowrap;flex:none;}
+  .chip.on{background:#E6F7F6;border-color:#0EA5A4;color:#0B7C7B;font-weight:600;}
+  .list{flex:1;padding:12px 16px;display:flex;flex-direction:column;gap:12px;}
+  .g{background:#fff;border:1px solid #E5E7EB;border-radius:14px;overflow:hidden;}
+  .g .banner{height:96px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 10px,#E4E6E8 10px,#E4E6E8 20px);}
+  .g .in{padding:12px;display:flex;flex-direction:column;gap:6px;}
+  .g .name{font-size:15px;font-weight:700;}
+  .g .desc{font-size:12px;color:#6B7280;line-height:1.5;}
+  .g .foot{display:flex;gap:8px;align-items:center;margin-top:2px;}
+  .badge{font-size:11px;color:#0B7C7B;background:#E6F7F6;border-radius:6px;padding:2px 7px;}
+  .badge.gray{color:#6B7280;background:#F3F4F6;}
+  .members{font-size:11px;color:#9CA3AF;margin-left:auto;}
+  .fab{position:absolute;right:16px;bottom:76px;width:52px;height:52px;border-radius:999px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(14,165,164,.4);}
+  .tabbar{height:60px;background:#fff;border-top:1px solid #E5E7EB;display:flex;flex:none;}
+  .tabbar .tb2{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#9CA3AF;}
+  .tabbar .tb2.on{color:#0EA5A4;font-weight:600;}
+  .tabbar .tb2 .d{width:22px;height:22px;border-radius:7px;background:#E5E7EB;}
+  .tabbar .tb2.on .d{background:#0EA5A4;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="t">모임</div><div class="icons"><div class="ic"></div><div class="ic"></div></div></div>
+  <div class="cats">
+    <span class="chip on">전체</span>
+    <span class="chip">운동</span>
+    <span class="chip">스터디</span>
+    <span class="chip">취미</span>
+    <span class="chip">봉사</span>
+    <span class="chip">공모전</span>
+  </div>
+  <div class="list">
+    <div class="g">
+      <div class="banner"></div>
+      <div class="in">
+        <div class="name">한국대 아침 러닝크루 🏃</div>
+        <div class="desc">주 3회 아침 6:30, 운동장에서 같이 뜁니다. 초보 환영!</div>
+        <div class="foot"><span class="badge">운동</span><span class="badge gray">승인제</span><span class="members">멤버 24 · 정원 30</span></div>
+      </div>
+    </div>
+    <div class="g">
+      <div class="banner"></div>
+      <div class="in">
+        <div class="name">코딩테스트 스터디 (주 1회)</div>
+        <div class="desc">매주 토요일 오후, 백준·프로그래머스 문제 리뷰. 3학년 이상 우대.</div>
+        <div class="foot"><span class="badge">스터디</span><span class="badge gray">승인제</span><span class="members">멤버 8 · 정원 10</span></div>
+      </div>
+    </div>
+    <div class="g">
+      <div class="banner"></div>
+      <div class="in">
+        <div class="name">보드게임 번개 모임</div>
+        <div class="desc">시험 끝나고 학생회관에서 보드게임 하실 분!</div>
+        <div class="foot"><span class="badge">취미</span><span class="badge gray">누구나</span><span class="members">멤버 41</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fab">+</div>
+  <div class="tabbar">
+    <div class="tb2"><div class="d"></div>홈</div>
+    <div class="tb2"><div class="d"></div>중고책</div>
+    <div class="tb2 on"><div class="d"></div>모임</div>
+    <div class="tb2"><div class="d"></div>커뮤니티</div>
+    <div class="tb2"><div class="d"></div>마이</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

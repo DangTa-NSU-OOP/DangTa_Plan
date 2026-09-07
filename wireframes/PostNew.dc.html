@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;}
+  .appbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #EEF0F1;flex:none;}
+  .appbar .x{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .appbar .t{font-size:16px;font-weight:700;}
+  .appbar .post{font-size:14px;font-weight:700;color:#fff;background:#0EA5A4;border-radius:8px;padding:6px 14px;}
+  .board{padding:14px 16px;border-bottom:1px solid #EEF0F1;display:flex;align-items:center;justify-content:space-between;}
+  .board .l{font-size:13px;color:#6B7280;}
+  .board .v{font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;}
+  .caret{width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #9CA3AF;}
+  .title{padding:16px;font-size:17px;font-weight:700;color:#9CA3AF;border-bottom:1px solid #F2F3F4;}
+  .area{padding:16px;font-size:15px;color:#9CA3AF;line-height:1.7;flex:1;}
+  .toolbar{border-top:1px solid #E5E7EB;display:flex;align-items:center;gap:16px;padding:12px 16px;flex:none;}
+  .toolbar .ti{width:24px;height:24px;border-radius:6px;background:#E5E7EB;}
+  .toolbar .anon{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:13px;color:#0B7C7B;font-weight:600;}
+  .toolbar .sw{width:38px;height:22px;border-radius:999px;background:#0EA5A4;position:relative;}
+  .toolbar .sw::after{content:"";position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:999px;background:#fff;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="appbar"><div class="x"></div><div class="t">글쓰기</div><div class="post">등록</div></div>
+  <div class="board">
+    <span class="l">게시판</span>
+    <span class="v">자유게시판 <span class="caret"></span></span>
+  </div>
+  <div class="title">제목을 입력하세요</div>
+  <div class="area">자유롭게 글을 작성해 보세요. 서로 존중하는 커뮤니티를 만들어요. (사진 첨부·투표 추가 가능)</div>
+  <div class="toolbar">
+    <div class="ti"></div>
+    <div class="ti"></div>
+    <div class="anon">익명으로 <span class="sw"></span></div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

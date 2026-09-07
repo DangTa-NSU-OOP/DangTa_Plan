@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body{margin:0;font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:#fff;color:#111827;}
+  *{box-sizing:border-box;}
+  a{color:#0B7C7B;} a:hover{color:#0B8C8B;}
+  .screen{width:390px;min-height:900px;background:#fff;display:flex;flex-direction:column;position:relative;}
+  .banner{height:150px;background:repeating-linear-gradient(45deg,#EDEFF1,#EDEFF1 10px,#E4E6E8 10px,#E4E6E8 20px);position:relative;flex:none;}
+  .banner .back{position:absolute;top:14px;left:14px;width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,.9);}
+  .head{padding:16px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid #EEF0F1;}
+  .name{font-size:19px;font-weight:800;}
+  .tags{display:flex;gap:6px;}
+  .badge{font-size:11px;color:#0B7C7B;background:#E6F7F6;border-radius:6px;padding:3px 8px;}
+  .badge.gray{color:#6B7280;background:#F3F4F6;}
+  .desc{font-size:14px;line-height:1.6;color:#374151;}
+  .tabs{display:flex;border-bottom:1px solid #E5E7EB;}
+  .tabs .tab{flex:1;text-align:center;padding:12px 0;font-size:13px;color:#9CA3AF;}
+  .tabs .tab.on{color:#0EA5A4;font-weight:700;border-bottom:2px solid #0EA5A4;}
+  .sec{padding:16px;border-bottom:8px solid #F5F6F7;}
+  .sec h4{margin:0 0 10px;font-size:13px;color:#6B7280;}
+  .members{display:flex;gap:8px;}
+  .members .m{width:40px;height:40px;border-radius:999px;background:#E5E7EB;}
+  .sched{display:flex;gap:12px;align-items:flex-start;}
+  .sched .date{width:44px;text-align:center;flex:none;}
+  .sched .date .d{font-size:18px;font-weight:800;}
+  .sched .date .mo{font-size:11px;color:#9CA3AF;}
+  .sched .si .t{font-size:14px;font-weight:600;}
+  .sched .si .s{font-size:12px;color:#9CA3AF;}
+  .post{padding:12px 0;border-bottom:1px solid #F2F3F4;}
+  .post .pt{font-size:14px;font-weight:600;}
+  .post .ps{font-size:12px;color:#9CA3AF;margin-top:2px;}
+  .notice{font-size:11px;color:#B45309;background:#FEF3E2;border-radius:5px;padding:1px 6px;margin-right:6px;}
+  .cta{position:sticky;bottom:0;background:#fff;border-top:1px solid #E5E7EB;padding:12px 16px;flex:none;}
+  .cta .btn{height:48px;border-radius:12px;background:#0EA5A4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;}
+</style>
+</helmet>
+<div class="screen">
+  <div class="banner"><div class="back"></div></div>
+  <div class="head">
+    <div class="name">한국대 아침 러닝크루 🏃</div>
+    <div class="tags"><span class="badge">운동</span><span class="badge gray">승인제</span><span class="badge gray">멤버 24 / 30</span></div>
+    <div class="desc">주 3회(월·수·금) 아침 6:30, 대운동장에서 5km 함께 뜁니다. 페이스 나눠서 뛰니 초보도 환영해요. 가입 시 목표 한 줄만 적어주세요!</div>
+  </div>
+  <div class="tabs">
+    <div class="tab on">소개</div>
+    <div class="tab">게시판</div>
+    <div class="tab">일정</div>
+    <div class="tab">멤버</div>
+  </div>
+  <div class="sec">
+    <h4>멤버 24명</h4>
+    <div class="members"><div class="m"></div><div class="m"></div><div class="m"></div><div class="m"></div><div class="m"></div><div class="m"></div></div>
+  </div>
+  <div class="sec">
+    <h4>다가오는 일정</h4>
+    <div class="sched">
+      <div class="date"><div class="d">10</div><div class="mo">9월 수</div></div>
+      <div class="si"><div class="t">정기 러닝 5km</div><div class="s">오전 6:30 · 대운동장 트랙 · 참석 12</div></div>
+    </div>
+  </div>
+  <div class="sec" style="border-bottom:none;">
+    <h4>최근 게시글</h4>
+    <div class="post"><div class="pt"><span class="notice">공지</span>우천 시 운영 방침 안내</div><div class="ps">모임장 · 2일 전 · 댓글 5</div></div>
+    <div class="post"><div class="pt">오늘 러닝 인증 🔥</div><div class="ps">달리는곰 · 5시간 전 · 댓글 3</div></div>
+  </div>
+  <div class="cta"><div class="btn">가입 신청하기</div></div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>
